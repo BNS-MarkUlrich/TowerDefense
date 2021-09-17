@@ -8,13 +8,14 @@ namespace BaseLocation
     public class Hostile : MonoBehaviour
     {
         [SerializeField] private UnityEvent onPathComplete;
-        
         [SerializeField] private Destination _destination;
-
         [SerializeField] public float _speed = 5.0f;
         [SerializeField] public float _arrivalthreshold = 0.1f;
-
         private float _hostileHeight;
+
+        [SerializeField] public float _damageAmount;
+
+        public Health _playerHealth;
 
         private void Awake()
         {
