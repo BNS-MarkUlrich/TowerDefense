@@ -126,3 +126,7 @@ MonoBehaviour:
   _destination: {fileID: 0}
   _speed: 5
   _arrivalthreshold: 0.1
+  _hostile: {fileID: 54294533505793528}
+  _damageAmount: 1
+  _startEnemyHealth: 2
+  _playerHealth: {fileID: 0}

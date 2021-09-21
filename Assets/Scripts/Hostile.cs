@@ -13,9 +13,18 @@ namespace BaseLocation
         [SerializeField] public float _arrivalthreshold = 0.1f;
         private float _hostileHeight;
 
+        public Hostile _hostile;
+
         [SerializeField] public float _damageAmount;
+        [SerializeField] public float _startEnemyHealth = 2;
+        private float _currenEnemyHealth;
 
         public Health _playerHealth;
+
+        private void Start()
+        {
+            SetupEnemy();
+        }
 
         private void Awake()
         {
@@ -24,6 +33,13 @@ namespace BaseLocation
             {
                 _destination = GameObject.FindObjectOfType<Destination>();
             }
+        }
+
+        public void SetupEnemy()
+        {
+            _currenEnemyHealth = _startEnemyHealth;
+            _playerHealth = GameObject.FindWithTag("PlayerBase").GetComponent<Health>();
+            _hostile.onPathComplete.AddListener(() => _playerHealth.TakeDamage(_damageAmount));
         }
 
         private void Update()
