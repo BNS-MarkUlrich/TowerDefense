@@ -17,14 +17,23 @@ public class Health : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         _currentHealth -= dmg;
-        Debug.Log(_currentHealth);
-        Debug.Log("I took damage!");
+        //Debug.Log("I took damage!");
 
         if (_currentHealth <= 0)
         {
-            StartCoroutine(PlayerDeadFeedback());
+            DeadState();
         }
     }
+
+    public void DeadState()
+    {
+        if (_currentHealth <= 0)
+        {
+            //Debug.Log("I am dead");
+            Destroy(this.gameObject);
+        }
+    }
+
     IEnumerator PlayerDeadFeedback()
     {
         Material dmat = renderer.material;
