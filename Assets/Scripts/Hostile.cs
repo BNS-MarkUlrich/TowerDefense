@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Hostile : MonoBehaviour
+public class Hostile : Health
 {
     [SerializeField] private UnityEvent onPathComplete;
     [SerializeField] private BaseLocation.Destination _destination;
@@ -18,7 +18,9 @@ public class Hostile : MonoBehaviour
 
     public Health _playerHealth;
 
-    private void Start()
+    private PointSystem _pointSystem;
+
+    public override void Start()
     {
         SetupEnemy();
     }
@@ -38,14 +40,11 @@ public class Hostile : MonoBehaviour
         _hostile.onPathComplete.AddListener(() => _playerHealth.TakeDamage(_damageAmount));
     }
 
-    /*public void DeadState()
+    public override void DeadState()
     {
-        if (_currenEnemyHealth <= 0)
-        {
-            Debug.Log("I am dead");
-            Destroy(this.gameObject);
-        }
-    }*/
+        base.DeadState();
+        _pointSystem.AddPoints(100);
+    }
 
     private void Update()
     {
@@ -61,5 +60,7 @@ public class Hostile : MonoBehaviour
 
         transform.LookAt(heightOffsetPosition);
         transform.Translate(Vector3.forward * _speed * Time.deltaTime);
+
+        _pointSystem = FindObjectOfType<PointSystem>();
     }
 }

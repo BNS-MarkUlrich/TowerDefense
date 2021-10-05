@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8060050018813727752}
   - component: {fileID: 7248573220565948278}
   - component: {fileID: 3689853806981187974}
-  - component: {fileID: 6843659379647541624}
   m_Layer: 0
   m_Name: TowerSpawn
   m_TagString: TowerBuilder
@@ -97,24 +96,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6843659379647541624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6919004442529107933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e68a0c088526e446bff0359c8054848, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tower: {fileID: 7800434162746949422, guid: 56a56097a837f8d439b2564539071911, type: 3}
-  _selectedColor: {r: 0.18039213, g: 0.7543464, b: 0.85882354, a: 0}
-  _selectedTower: {fileID: 0}
-  _buildLocation: {fileID: 7597682654567735820}
-  _towerSpawn: {x: 0, y: 0, z: 0}
-  _towerDefaultColor: {r: 0.10980393, g: 0.38823533, b: 0.16078432, a: 1}
 --- !u!1 &7597682654567735820
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7597682654567735820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.467, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6458105501299820482}

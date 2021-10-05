@@ -9,9 +9,14 @@ public class Health : MonoBehaviour
 
     //private new MeshRenderer renderer;
 
-    public void Start()
+    public virtual void Start()
     {
         _currentHealth = _startHealth;
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void TakeDamage(float dmg)
@@ -25,7 +30,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void DeadState()
+    public virtual void DeadState()
     {
         if (_currentHealth <= 0)
         {
