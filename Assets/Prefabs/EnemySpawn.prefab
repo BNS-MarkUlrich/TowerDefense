@@ -47,7 +47,7 @@ MonoBehaviour:
   stopSpawning: 0
   isPlayer: 0
   spawnTime: 3
-  spawnDelay: 1
+  spawnDelay: 2
   deadPlayer: 0
   _spawnAtVector3: {x: 0, y: 0, z: 0}
   _objectHeight: {fileID: 54294533505793509, guid: 909e899320ba08b4192d61482a845d47, type: 3}

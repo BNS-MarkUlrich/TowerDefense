@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField] public float _startHealth = 3;
     public float _currentHealth;
 
-    private new MeshRenderer renderer;
+    //private new MeshRenderer renderer;
 
     public void Start()
     {
@@ -34,11 +34,11 @@ public class Health : MonoBehaviour
         }
     }
 
-    IEnumerator PlayerDeadFeedback()
+    /*IEnumerator PlayerDeadFeedback()
     {
         Material dmat = renderer.material;
 
         dmat.color -= new Color(0.2f, 0.2f, 0.2f, 3.8f);
         yield return null;
-    }
+    }*/
 }

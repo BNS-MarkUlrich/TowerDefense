@@ -8,6 +8,8 @@ public class LaserTurret : MonoBehaviour
     public float _shootTimer = 1.0f;
     private Health _hostileInRange;
 
+    private Hostile _hostileLocation;
+
     [SerializeField] private float _damage;
 
     private void Update()
@@ -17,7 +19,7 @@ public class LaserTurret : MonoBehaviour
         TurretFire();
     }
 
-    private TurretLaser TurretFire()
+    private LaserTurret TurretFire()
     {
         if (_detected == false)
         {
@@ -28,10 +30,10 @@ public class LaserTurret : MonoBehaviour
             if (_hostileInRange != null)
             {
                 _shootTimer -= Time.deltaTime;
-
+                transform.LookAt(_hostileInRange.transform.position);
                 if (_shootTimer <= 0.0f)
                 {
-                    Debug.Log(_hostileInRange._currentHealth);
+                    //Debug.Log(_hostileInRange._currentHealth);
                     _hostileInRange.TakeDamage(_damage);
                     _shootTimer = 1.0f;
                 }
