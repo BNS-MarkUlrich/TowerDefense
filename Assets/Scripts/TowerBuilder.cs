@@ -10,7 +10,6 @@ public class TowerBuilder : MonoBehaviour
     [SerializeField] private Color _selectedColor;
 
     public GameObject _selectedTower;
-    public GameObject _buildLocation;
     private Vector3 _towerSpawn;
 
     private new MeshRenderer renderer;
@@ -83,11 +82,9 @@ public class TowerBuilder : MonoBehaviour
                     {
                         if (hitInfo.transform.gameObject.tag == "TowerBuilder")
                         {
-                            //_towerDefaultColor = gameObject.GetComponent<Renderer>().material.color;
                             _selectedTower = hitInfo.transform.gameObject;
-                            _towerSpawn = new Vector3(_selectedTower.transform.position.x, _buildLocation.transform.position.y, _selectedTower.transform.position.z);
+                            _towerSpawn = new Vector3(_selectedTower.transform.position.x, _selectedTower.transform.position.y, _selectedTower.transform.position.z);
                             _selectedTower.GetComponent<Renderer>().material.color = _selectedColor;
-                            //Debug.Log(_selectedTower.name);
                             currenState = States.SPAWNSTATE;
                         }
                         else

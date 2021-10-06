@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8579894101132593274
+--- !u!1 &1817044518770131840
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3931205478243382789}
-  - component: {fileID: 3482966353561994908}
+  - component: {fileID: 193082333891159689}
+  - component: {fileID: 3597040446923756996}
   m_Layer: 0
-  m_Name: BuilderManager
+  m_Name: EnemySpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3931205478243382789
+--- !u!4 &193082333891159689
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8579894101132593274}
+  m_GameObject: {fileID: 1817044518770131840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,21 +31,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3482966353561994908
+--- !u!114 &3597040446923756996
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8579894101132593274}
+  m_GameObject: {fileID: 1817044518770131840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e68a0c088526e446bff0359c8054848, type: 3}
+  m_Script: {fileID: 11500000, guid: ae3ff98c15adfbb468144eccb7f12dd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tower: {fileID: 7800434162746949422, guid: 56a56097a837f8d439b2564539071911, type: 3}
-  _selectedColor: {r: 0, g: 0.9201095, b: 1, a: 0}
-  _selectedTower: {fileID: 0}
-  _buildLocation: {fileID: 0}
-  _towerDefaultColor: {r: 0, g: 0.65882355, b: 0.007843138, a: 0}
-  currenState: 0
+  spawnee: {fileID: 54294533505793509, guid: 909e899320ba08b4192d61482a845d47, type: 3}
+  stopSpawning: 0
+  isPlayer: 0
+  spawnTime: 3
+  spawnDelay: 2
+  deadPlayer: 0
+  _spawnAtVector3: {x: 0, y: 5, z: 0}
+  _objectHeight: {fileID: 54294533505793509, guid: 909e899320ba08b4192d61482a845d47, type: 3}

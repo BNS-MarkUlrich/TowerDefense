@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
         
     }
 
-    public void TakeDamage(float dmg)
+    public virtual void TakeDamage(float dmg)
     {
         _currentHealth -= dmg;
         //Debug.Log("I took damage!");

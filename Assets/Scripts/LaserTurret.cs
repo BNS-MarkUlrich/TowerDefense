@@ -6,20 +6,18 @@ public class LaserTurret : MonoBehaviour
 {
     private bool _detected;
     public float _shootTimer = 1.0f;
-    private Health _hostileInRange;
-
-    private Hostile _hostileLocation;
+    protected Health _hostileInRange;
 
     [SerializeField] private float _damage;
 
-    private void Update()
+    public void Update()
     {
-        _detected = gameObject.GetComponent<Detection>()._detection;
-        _hostileInRange = gameObject.GetComponent<Detection>().RangeChecker();
+        _detected = gameObject.GetComponentInParent<Detection>()._detection;
+        _hostileInRange = gameObject.GetComponentInParent<Detection>().RangeChecker();
         TurretFire();
     }
 
-    private LaserTurret TurretFire()
+    public LaserTurret TurretFire()
     {
         if (_detected == false)
         {

@@ -22,6 +22,7 @@ public class Hostile : Health
 
     public override void Start()
     {
+        base.Start();
         SetupEnemy();
     }
 
@@ -38,6 +39,12 @@ public class Hostile : Health
     {
         _playerHealth = GameObject.FindWithTag("PlayerBase").GetComponent<Health>();
         _hostile.onPathComplete.AddListener(() => _playerHealth.TakeDamage(_damageAmount));
+    }
+
+    public override void TakeDamage(float dmg)
+    {
+        base.TakeDamage(dmg);
+        _pointSystem.AddPoints(10);
     }
 
     public override void DeadState()

@@ -19,7 +19,7 @@ namespace BaseLocation
 
         private void Start()
         {
-            _spawnAtVector3 = new Vector3(_spawnAtVector3.x, _objectHeight.transform.position.y, _spawnAtVector3.z);
+            _spawnAtVector3 = new Vector3(_spawnAtVector3.x, _spawnAtVector3.y, _spawnAtVector3.z); // Was _objectHeight.transform.position.y for floor alignment
 
             if (isPlayer == true)
             {
