@@ -20,6 +20,8 @@ public class TowerBuilder : MonoBehaviour
     private float _points;
     private PointSystem _pointSystem;
 
+    //public bool _limitedPoints;
+
     private void Start()
     {
         renderer = GetComponent<MeshRenderer>();
@@ -38,10 +40,12 @@ public class TowerBuilder : MonoBehaviour
             {
                 _pointSystem.RemovePoints(500);
                 Instantiate(_tower, _towerSpawn, tower.transform.rotation);
+                //_limitedPoints = false;
             }
             else
             {
-                print(_points + " points are not enough!");
+                _pointSystem.NotEnoughPoints();
+                //_limitedPoints = true;
             }
             _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
             currenState = States.SELECTIONSTATE;

@@ -12,11 +12,18 @@ public class PointSystem : MonoBehaviour
     }
 
     [SerializeField] private PointUI _pointUI;
+    [SerializeField] private MessagesUI _notEnoughMessage;
 
     private void Start()
     {
         _currentPoints = _startPoints;
         _pointUI.UpdateUI(CurrentPoints);
+        _notEnoughMessage.EnableMessageUI("Dit is mijn message");
+    }
+
+    public void NotEnoughPoints()
+    {
+        //_notEnoughMessage.NotEnoughPointsUI(CurrentPoints);
     }
 
     public void AddPoints(float points)
