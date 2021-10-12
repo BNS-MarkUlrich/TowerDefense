@@ -20,7 +20,7 @@ public class TowerBuilder : MonoBehaviour
     private float _points;
     private PointSystem _pointSystem;
 
-    //public bool _limitedPoints;
+    public bool _canBuild;
 
     private void Start()
     {
@@ -36,10 +36,11 @@ public class TowerBuilder : MonoBehaviour
             // spawn that tower will be linked to that spawn through the array
             // or
             // Somehow use collisions and possibly a tag specifically for towers?
-            if (_points >= 500)
+            if (_points >= 500 && _canBuild == true)
             {
                 _pointSystem.RemovePoints(500);
                 Instantiate(_tower, _towerSpawn, tower.transform.rotation);
+                _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
                 //_limitedPoints = false;
             }
             else
@@ -89,6 +90,7 @@ public class TowerBuilder : MonoBehaviour
                             _selectedTower = hitInfo.transform.gameObject;
                             _towerSpawn = new Vector3(_selectedTower.transform.position.x, _selectedTower.transform.position.y, _selectedTower.transform.position.z);
                             _selectedTower.GetComponent<Renderer>().material.color = _selectedColor;
+                            _canBuild = _selectedTower.GetComponent<BuildOverride>()._canBuild;
                             currenState = States.SPAWNSTATE;
                         }
                         else

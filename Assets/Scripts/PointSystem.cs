@@ -18,12 +18,12 @@ public class PointSystem : MonoBehaviour
     {
         _currentPoints = _startPoints;
         _pointUI.UpdateUI(CurrentPoints);
-        _notEnoughMessage.EnableMessageUI("Dit is mijn message");
     }
 
     public void NotEnoughPoints()
     {
         //_notEnoughMessage.NotEnoughPointsUI(CurrentPoints);
+        _notEnoughMessage.EnableMessageUI(CurrentPoints + " is not enough points!");
     }
 
     public void AddPoints(float points)

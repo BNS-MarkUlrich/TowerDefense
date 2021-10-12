@@ -13,9 +13,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootTimer: 0.5
-  _hostileInRange: {fileID: 0}
-  bulletPrefab: {fileID: 2678675354604933705, guid: 721abc9faaeb3d248b7f06c15f5e1e59, type: 3}
+  bulletPrefab: {fileID: 0}
   _damage: 1
+--- !u!114 &9122046029935879653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269479251891903078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d96b9a00e95f5d4c8ec96ca7f090fdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 3
+  _arrivalthreshold: 0.1
+  _target: {x: 0, y: 0, z: 0}
 --- !u!1 &2048456725024286584
 GameObject:
   m_ObjectHideFlags: 0

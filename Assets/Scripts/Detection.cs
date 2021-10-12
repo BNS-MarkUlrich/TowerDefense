@@ -15,7 +15,7 @@ public class Detection : MonoBehaviour
         //Debug.Log(_detection);
     }
 
-    public Health RangeChecker()
+    public GameObject RangeChecker()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, _radius, _layer);
         if (hitColliders.Length < 1)
@@ -27,14 +27,10 @@ public class Detection : MonoBehaviour
         {
             //Debug.Log(hitColliders[0]);
             _detection = true;
-            
-            return hitColliders[0].GetComponent<Health>();
+
+            return hitColliders[0].gameObject;
         }
         
-        /*foreach (var hitCollider in hitColliders)
-        {
-            Debug.Log(hitCollider.gameObject.name);
-        }*/
     }
     private void OnDrawGizmos()
     {

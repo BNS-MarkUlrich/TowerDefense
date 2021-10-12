@@ -5,7 +5,7 @@ using UnityEngine;
 public class TurretLookAt : MonoBehaviour
 {
     private bool _detected;
-    private Health _hostileLocation;
+    private GameObject _hostileLocation;
 
     private void Update()
     {
