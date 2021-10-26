@@ -14,15 +14,9 @@ public class Health : MonoBehaviour
         _currentHealth = _startHealth;
     }
 
-    private void Update()
-    {
-        
-    }
-
     public virtual void TakeDamage(float dmg)
     {
         _currentHealth -= dmg;
-        //Debug.Log("I took damage!");
 
         if (_currentHealth <= 0)
         {
