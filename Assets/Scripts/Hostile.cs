@@ -9,12 +9,15 @@ public class Hostile : Health
     [SerializeField] private BaseLocation.Destination _destination;
     [SerializeField] public float _speed = 5.0f;
     [SerializeField] public float _arrivalthreshold = 0.1f;
+
+    public EnemyHealthDisplay healthbarValue;
+    private EnemyHealthDisplay updateHealthbar;
+
     private float _hostileHeight;
 
     public Hostile _hostile;
 
     [SerializeField] public float _damageAmount;
-    //public Health _currenEnemyHealth;
 
     public Health _playerHealth;
 
@@ -39,6 +42,8 @@ public class Hostile : Health
     {
         _playerHealth = GameObject.FindWithTag("PlayerBase").GetComponent<Health>();
         _hostile.onPathComplete.AddListener(() => _playerHealth.TakeDamage(_damageAmount));
+        updateHealthbar = healthbarValue.GetComponentInChildren<EnemyHealthDisplay>();
+        updateHealthbar.Initialise(_startHealth, _currentHealth);
     }
 
     public override void TakeDamage(float dmg)
@@ -68,5 +73,6 @@ public class Hostile : Health
         transform.Translate(Vector3.forward * _speed * Time.deltaTime);
 
         _pointSystem = FindObjectOfType<PointSystem>();
+        updateHealthbar.UpdateHP(_currentHealth);
     }
 }
