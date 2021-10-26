@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 5460869105851352503}
   - component: {fileID: 7417136703058872811}
   m_Layer: 5
-  m_Name: NotEnoughPoints
+  m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -576,7 +576,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '# is not enough points!'
+  m_Text: 
 --- !u!1 &9042235585074345114
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +603,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9042235585074345114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -614,7 +614,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 25}
+  m_SizeDelta: {x: 350, y: 35}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3523413780557179080
 CanvasRenderer:
@@ -667,3 +667,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 7417136703058872811}
+  _disableTime: 3
+  _messageManager: {fileID: 0}

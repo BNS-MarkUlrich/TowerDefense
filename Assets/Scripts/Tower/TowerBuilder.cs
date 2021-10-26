@@ -19,34 +19,58 @@ public class TowerBuilder : MonoBehaviour
 
     private float _points;
     private PointSystem _pointSystem;
+    private MessagesUI _message;
 
     public bool _canBuild;
 
     private void Start()
     {
         renderer = GetComponent<MeshRenderer>();
+        _message = FindObjectOfType<MessagesUI>();
     }
 
     void SpawnLaserTurret(GameObject tower)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && tower != null)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && tower != null) // Laser Turret
         {
-            // ToDO: To prevent towers spawning over each other, maybe make an array of
-            // all spawns in the scene at the start of the level. When placing a tower on a
-            // spawn that tower will be linked to that spawn through the array
-            // or
-            // Somehow use collisions and possibly a tag specifically for towers?
-            if (_points >= 500 && _canBuild == true)
+            if (_canBuild == true)
             {
-                _pointSystem.RemovePoints(500);
-                Instantiate(_tower, _towerSpawn, tower.transform.rotation);
-                _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
-                //_limitedPoints = false;
+                if (_points >= 500)
+                {
+                    _pointSystem.RemovePoints(500);
+                    Instantiate(_tower, _towerSpawn, tower.transform.rotation);
+                    _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
+                }
+                else
+                {
+                    _message.EnableMessageUI(_points + " is not enough points");
+                }
             }
             else
             {
-                _pointSystem.NotEnoughPoints();
-                //_limitedPoints = true;
+                _message.EnableMessageUI("You cannot build on this tile!");
+            }
+            _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
+            currenState = States.SELECTIONSTATE;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && tower != null) // Rocket Tower
+        {
+            if (_canBuild == true)
+            {
+                if (_points >= 750)
+                {
+                    _pointSystem.RemovePoints(500);
+                    Instantiate(_tower, _towerSpawn, tower.transform.rotation);
+                    _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
+                }
+                else
+                {
+                    _message.EnableMessageUI(_points + " is not enough points");
+                }
+            }
+            else
+            {
+                _message.EnableMessageUI("You cannot build on this tile!");
             }
             _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
             currenState = States.SELECTIONSTATE;

@@ -44,7 +44,7 @@ public class Hostile : Health
     public override void TakeDamage(float dmg)
     {
         base.TakeDamage(dmg);
-        _pointSystem.AddPoints(10);
+        //_pointSystem.AddPoints(10);
     }
 
     public override void DeadState()
@@ -55,7 +55,6 @@ public class Hostile : Health
 
     private void Update()
     {
-        //_currenEnemyHealth = gameObject.GetComponent<Health>();
         Vector3 heightOffsetPosition = new Vector3(_destination.transform.position.x, _hostileHeight, _destination.transform.position.z);
         float distance = Vector3.Distance(transform.position, heightOffsetPosition);
 

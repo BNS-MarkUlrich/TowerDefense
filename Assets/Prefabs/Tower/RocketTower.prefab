@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &7334290241424773142
+--- !u!114 &5477963668418911417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15,6 +15,7 @@ MonoBehaviour:
   _shootTimer: 0.5
   _hostileInRange: {fileID: 0}
   bulletPrefab: {fileID: 2678675354604933705, guid: 721abc9faaeb3d248b7f06c15f5e1e59, type: 3}
+  _damage: 1
 --- !u!1 &2048456725024286584
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +61,7 @@ GameObject:
   - component: {fileID: 2866407783417390256}
   - component: {fileID: 4360143129939996916}
   m_Layer: 0
-  m_Name: heavy-cannon
+  m_Name: RocketTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
