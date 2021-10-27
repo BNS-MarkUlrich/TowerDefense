@@ -21,15 +21,17 @@ public class MessagesUI : MonoBehaviour
         {
             _messageManager.MessageON();
             _text.text = message;
-            
-            //gameObject.SetActive(true);
 
             CancelInvoke();
             Invoke("DisableMessage", _disableTime);
         }
-        else
+        else if (_disableTime != 0)
         {
-            DisableMessage();
+            _messageManager.MessageON();
+            _text.text = message;
+
+            CancelInvoke();
+            Invoke("DisableMessage", _disableTime);
         }
     }
 
@@ -37,6 +39,5 @@ public class MessagesUI : MonoBehaviour
     {
         _messageManager.MessageOFF();
         _text.text = " ";
-        //gameObject.SetActive(false);
     }
 }
