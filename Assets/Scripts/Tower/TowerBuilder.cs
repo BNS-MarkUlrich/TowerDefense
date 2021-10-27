@@ -7,6 +7,7 @@ public class TowerBuilder : MonoBehaviour
 {
 
     [SerializeField] private GameObject _tower;
+    [SerializeField] private GameObject _rocketTower;
     [SerializeField] private Color _selectedColor;
 
     public GameObject _selectedTower;
@@ -59,8 +60,8 @@ public class TowerBuilder : MonoBehaviour
             {
                 if (_points >= 750)
                 {
-                    _pointSystem.RemovePoints(500);
-                    Instantiate(_tower, _towerSpawn, tower.transform.rotation);
+                    _pointSystem.RemovePoints(750);
+                    Instantiate(_rocketTower, _towerSpawn, tower.transform.rotation);
                     _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
                 }
                 else

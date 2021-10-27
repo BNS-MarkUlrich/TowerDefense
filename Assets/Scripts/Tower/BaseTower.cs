@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserTurret : MonoBehaviour
+public class BaseTower : MonoBehaviour
 {
     private bool _detected;
     public float _shootTimer = 1.0f;
+    private float shootTimer;
     public GameObject _hostileInRange;
 
     [SerializeField] private GameObject bulletPrefab;
+
+    private void Start()
+    {
+        shootTimer = _shootTimer;
+    }
 
     public void Update()
     {
@@ -17,7 +23,7 @@ public class LaserTurret : MonoBehaviour
         TurretFire();
     }
 
-    public LaserTurret TurretFire()
+    public virtual BaseTower TurretFire()
     {
         if (_detected == false)
         {
@@ -27,6 +33,7 @@ public class LaserTurret : MonoBehaviour
         {
             if (_hostileInRange != null)
             {
+                //Debug.Log(shootTimer);
                 _shootTimer -= Time.deltaTime;
                 transform.LookAt(_hostileInRange.transform.position);
                 if (_shootTimer <= 0.0f)
@@ -34,7 +41,7 @@ public class LaserTurret : MonoBehaviour
                     GameObject abullet = Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
                     abullet.transform.LookAt(_hostileInRange.transform);
                     abullet.GetComponent<Bullet>()._target = _hostileInRange;
-                    _shootTimer = 1.0f;
+                    _shootTimer = shootTimer;
                 }
             }
             else

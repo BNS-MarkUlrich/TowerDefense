@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class Wrapper : MonoBehaviour
 {
-    private List<LaserTurret> components = new List<LaserTurret>();
+    private List<BaseTower> components = new List<BaseTower>();
 
     private void Awake()
     {
-        components.AddRange(GetComponents<LaserTurret>());
-        components.AddRange(GetComponentsInChildren<LaserTurret>());
+        components.AddRange(GetComponents<BaseTower>());
+        components.AddRange(GetComponentsInChildren<BaseTower>());
 
-        foreach (LaserTurret tow in components)
+        foreach (BaseTower tow in components)
         {
             //Debug.Log(tow.name);
             //tow.enabled = false;
@@ -21,7 +21,7 @@ public class Wrapper : MonoBehaviour
 
     public void ToggleComponents()
     {
-        foreach (LaserTurret mono in components)
+        foreach (BaseTower mono in components)
         {
             //Debug.Log(mono.name);
             mono.enabled = !mono.enabled;

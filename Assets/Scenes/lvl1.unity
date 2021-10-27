@@ -135,6 +135,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7179653696307388462, guid: b28de9b3c485ada4d9d80e584a166f44, type: 3}
     - target: {fileID: 3482966353561994908, guid: d462ab157ed92f242af579a8a4d7ae88, type: 3}
+      propertyPath: _rocketTower
+      value: 
+      objectReference: {fileID: 7179653696307388462, guid: 1da7c5fe648b5524aa7ff5866b18b367, type: 3}
+    - target: {fileID: 3482966353561994908, guid: d462ab157ed92f242af579a8a4d7ae88, type: 3}
       propertyPath: _buildLocation
       value: 
       objectReference: {fileID: 0}
@@ -926,7 +930,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3521569498389835784, guid: 756f3bf13081ae145bd69a2f4ed4e232, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3521569498389835784, guid: 756f3bf13081ae145bd69a2f4ed4e232, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1301,6 +1305,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1520885467}
     - target: {fileID: 3619902835028517843, guid: cb831a5f9aa80e04e8e1505dc1a5915e, type: 3}
+      propertyPath: _startPoints
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619902835028517843, guid: cb831a5f9aa80e04e8e1505dc1a5915e, type: 3}
       propertyPath: _notEnoughPoints
       value: 
       objectReference: {fileID: 979617668}
@@ -1310,7 +1318,7 @@ PrefabInstance:
       objectReference: {fileID: 979617668}
     - target: {fileID: 6538723113500728454, guid: cb831a5f9aa80e04e8e1505dc1a5915e, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6538723113500728454, guid: cb831a5f9aa80e04e8e1505dc1a5915e, type: 3}
       propertyPath: m_LocalPosition.x

@@ -30,8 +30,29 @@ public class Detection : MonoBehaviour
 
             return hitColliders[0].gameObject;
         }
-        
     }
+
+    public Health[] AllInRangeChecker()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _radius, _layer);
+        if (hitColliders.Length < 1)
+        {
+            _detection = false;
+            return null;
+        }
+        else
+        {
+            _detection = true;
+            List<Health> objectsInRange = new List<Health>();
+            foreach (var hitCollider in hitColliders)
+            {
+                objectsInRange.Add(hitCollider.GetComponent<Health>());
+            }
+
+            return objectsInRange.ToArray();
+        }
+    }
+
     private void OnDrawGizmos()
     {
         // Draw a yellow sphere at the transform's position
