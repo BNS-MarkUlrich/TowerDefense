@@ -135,6 +135,7 @@ MonoBehaviour:
   _hostile: {fileID: 54294533505793528}
   _damageAmount: 10
   _playerHealth: {fileID: 0}
+  _pointsPerKill: 50
   _slowTimer: 2
   _originalTimer: 0
 --- !u!54 &5352376038042853820

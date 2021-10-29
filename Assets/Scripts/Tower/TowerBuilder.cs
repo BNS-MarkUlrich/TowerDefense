@@ -22,6 +22,7 @@ public class TowerBuilder : MonoBehaviour
     private MessagesUI _message;
 
     public bool _canBuild;
+    public int _towerNumber;
 
     private void Start()
     {
@@ -31,91 +32,114 @@ public class TowerBuilder : MonoBehaviour
 
     void SpawnLaserTurret(GameObject tower)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && tower != null) // Stun Tower
+        if (_canBuild == true)
         {
-            if (_canBuild == true)
+            
+            if (Input.GetKeyDown(KeyCode.Alpha1) && tower != null) // Stun Tower
             {
-                if (_points >= 500)
-                {
-                    _pointSystem.RemovePoints(500);
-                    Instantiate(_tower[0], _towerSpawn, tower.transform.rotation);
-                    _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
-                }
-                else
-                {
-                    _message.EnableMessageUI(_points + " is not enough points");
-                }
+                TowerShop(_tower[0], 500, 0);
             }
-            else
+            else if (Input.GetKeyDown(KeyCode.Alpha2) && tower != null) // Laser Turret
             {
-                _message.EnableMessageUI("You cannot build on this tile!");
+                TowerShop(_tower[1], 1000, 1);
             }
-            _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
-            currenState = States.SELECTIONSTATE;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && tower != null) // Laser Turret
-        {
-            if (_canBuild == true)
+            else if (Input.GetKeyDown(KeyCode.Alpha3) && tower != null) // Rocket Tower
             {
-                if (_points >= 1000)
-                {
-                    _pointSystem.RemovePoints(1000);
-                    Instantiate(_tower[1], _towerSpawn, tower.transform.rotation);
-                    _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
-                }
-                else
-                {
-                    _message.EnableMessageUI(_points + " is not enough points");
-                }
+                TowerShop(_tower[2], 1500, 2);
             }
-            else
+            else if (Input.GetMouseButtonDown(0))
             {
-                _message.EnableMessageUI("You cannot build on this tile!");
-            }
-            _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
-            currenState = States.SELECTIONSTATE;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && tower != null) // Rocket Tower
-        {
-            if (_canBuild == true)
-            {
-                if (_points >= 1500)
-                {
-                    _pointSystem.RemovePoints(1000);
-                    Instantiate(_tower[2], _towerSpawn, tower.transform.rotation);
-                    _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
-                }
-                else
-                {
-                    _message.EnableMessageUI(_points + " is not enough points");
-                }
-            }
-            else
-            {
-                _message.EnableMessageUI("You cannot build on this tile!");
-            }
-            _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
-            currenState = States.SELECTIONSTATE;
-        }
-        else if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hitInfo = new RaycastHit();
-            bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
+                RaycastHit hitInfo = new RaycastHit();
+                bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
 
-            if (hit)
-            {
-                if (hitInfo.transform.gameObject.tag != "TowerBuilder")
+                if (hit)
                 {
-                    _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
-                    _selectedTower = null;
+                    if (hitInfo.transform.gameObject.tag != "TowerBuilder")
+                    {
+                        _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
+                        _selectedTower = null;
+                    }
+                    else
+                    {
+                        _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
+                        _selectedTower = null;
+                    }
+                }
+                currenState = States.SELECTIONSTATE;
+            }
+        }
+        else
+        {
+            _message.EnableMessageUI("Select new tower...");
+            if (Input.GetKeyDown(KeyCode.Alpha1) && tower != null) // Stun Tower
+            {
+                if (_towerNumber > 0)
+                {
+                    _message.EnableMessageUI("You cannot downgrade a tower!");
+                    SwitchBackToSelection();
                 }
                 else
                 {
-                    _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
-                    _selectedTower = null;
+                    _message.EnableMessageUI("This tower already exists on this tile!");
+                    SwitchBackToSelection();
                 }
             }
-            currenState = States.SELECTIONSTATE;
+            else if (Input.GetKeyDown(KeyCode.Alpha2) && tower != null) // Laser Turret
+            {
+                if (_towerNumber > 1)
+                {
+                    _message.EnableMessageUI("You cannot downgrade a tower!");
+                    SwitchBackToSelection();
+                }
+                else if (_towerNumber == 1)
+                {
+                    _message.EnableMessageUI("This tower already exists on this tile!");
+                    SwitchBackToSelection();
+                }
+                else
+                {
+                    // Add destruction of old tower when new tower is spawned, try using unity events?
+                    TowerShop(_tower[1], 1000, 1);
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3) && tower != null) // Rocket Tower
+            {
+                if (_towerNumber > 2)
+                {
+                    _message.EnableMessageUI("You cannot downgrade a tower!");
+                    SwitchBackToSelection();
+                }
+                else if (_towerNumber == 2)
+                {
+                    _message.EnableMessageUI("This tower already exists on this tile!");
+                    SwitchBackToSelection();
+                }
+                else
+                {
+                    // Add destruction of old tower when new tower is spawned, try using unity events?
+                    TowerShop(_tower[2], 1500, 2);
+                }
+            }
+            else if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hitInfo = new RaycastHit();
+                bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
+
+                if (hit)
+                {
+                    if (hitInfo.transform.gameObject.tag != "TowerBuilder")
+                    {
+                        _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
+                        _selectedTower = null;
+                    }
+                    else
+                    {
+                        _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
+                        _selectedTower = null;
+                    }
+                }
+                currenState = States.SELECTIONSTATE;
+            }
         }
     }
 
@@ -137,6 +161,7 @@ public class TowerBuilder : MonoBehaviour
                             _towerSpawn = new Vector3(_selectedTower.transform.position.x, _selectedTower.transform.position.y, _selectedTower.transform.position.z);
                             _selectedTower.GetComponent<Renderer>().material.color = _selectedColor;
                             _canBuild = _selectedTower.GetComponent<BuildOverride>()._canBuild;
+                            _towerNumber = _selectedTower.GetComponent<BuildOverride>()._towerNumber; // Assigns tower index upon selection to keep track of upgrade possibilities
                             currenState = States.SPAWNSTATE;
                         }
                         else
@@ -159,6 +184,28 @@ public class TowerBuilder : MonoBehaviour
                 _towerDefaultColor = gameObject.GetComponent<Renderer>().material.color;
                 break;
         }
+    }
+
+    void TowerShop(GameObject tower, float points, int towerNumber)
+    {
+        if (_points >= points)
+        {
+            _pointSystem.RemovePoints(points);
+            Instantiate(tower, _towerSpawn, tower.transform.rotation);
+            _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
+            _selectedTower.GetComponent<BuildOverride>()._towerNumber = towerNumber; // Saves the index of spawned tower into class variable
+        }
+        else
+        {
+            float pointsShort = points - _points;
+            _message.EnableMessageUI("You need " + pointsShort + " more points to buy " + tower.name);
+        }
+        SwitchBackToSelection();
+    }
+    void SwitchBackToSelection()
+    {
+        _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
+        currenState = States.SELECTIONSTATE;
     }
 
     public void Update()

@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
     {
         if (_currentHealth <= 0)
         {
-            Debug.Log("I am dead");
+            //Debug.Log("I am dead");
             Destroy(this.gameObject);
         }
     }

@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StunTower : MonoBehaviour
+public class StunTower : BaseTower
 {
     public Hostile[] _allHostilesInRange;
-    private bool _detected;
 
-    private void Update()
+    public override void Update()
     {
-        _detected = gameObject.GetComponentInParent<Detection>()._detection;
+        base.Update();
         _allHostilesInRange = gameObject.GetComponent<Detection>().AllInRangeChecker();
         TowerStun();
     }

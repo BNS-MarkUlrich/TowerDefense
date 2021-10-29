@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 8996988327005001293}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6605264306799281983
+--- !u!114 &1764256685741152905
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,9 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3648882276334068456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e12ec9c05ff9749bf039bfd78aaf3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 857987e4357c4fe45bf2b901bc1b2a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _detected: 0
   _shootTimer: 1
   _hostileInRange: {fileID: 0}
   bulletPrefab: {fileID: 2678675354604933705, guid: 3901ac8d2e8ae18419b3f4312e843ab6, type: 3}

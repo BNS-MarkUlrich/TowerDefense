@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba0a8f3d777e5c419a55142d886f3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startPoints: 750
+  _startPoints: 500
   _currentPoints: 0
   _pointUI: {fileID: 0}

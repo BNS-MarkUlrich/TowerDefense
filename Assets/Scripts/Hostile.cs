@@ -23,6 +23,7 @@ public class Hostile : Health
     public Health _playerHealth;
 
     private PointSystem _pointSystem;
+    public float _pointsPerKill = 1;
 
     public float _slowTimer = 2;
     public float _originalTimer;
@@ -63,10 +64,11 @@ public class Hostile : Health
         if (_playerHealth != null)
         {
             base.DeadState();
-            _pointSystem.AddPoints(50);
+            _pointSystem.AddPoints(_pointsPerKill);
         }
         else
         {
+            Debug.Log("I am dead!");
             Destroy(this.gameObject);
         }
     }
