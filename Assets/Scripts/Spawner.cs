@@ -15,7 +15,7 @@ namespace BaseLocation
         public float deadPlayer;
 
         [SerializeField] private Vector3 _spawnAtVector3;
-        [SerializeField] private GameObject _objectHeight;
+        //[SerializeField] private GameObject _objectHeight;
 
         private void Start()
         {
@@ -30,6 +30,7 @@ namespace BaseLocation
                 InvokeRepeating("SpawnObject", spawnTime, spawnDelay); // Spawn enemies by interval
             }
         }
+
         /// <summary>
         /// <param name="SpawnObject">This function handles the spawning of objects. Object reference and Vector3 location are handled in the inspector or through code</param>
         /// </summary>
@@ -53,5 +54,4 @@ namespace BaseLocation
             Instantiate(spawnee, _spawnAtVector3, transform.rotation);
         }
     }
-
 }

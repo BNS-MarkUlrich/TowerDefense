@@ -55,7 +55,7 @@ public class Hostile : Health
     public override void DeadState()
     {
         base.DeadState();
-        _pointSystem.AddPoints(100);
+        _pointSystem.AddPoints(50);
     }
 
     private void Update()
