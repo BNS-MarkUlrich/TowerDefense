@@ -43,8 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e68a0c088526e446bff0359c8054848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tower: {fileID: 7800434162746949422, guid: 56a56097a837f8d439b2564539071911, type: 3}
+  _tower: {fileID: 7179653696307388462, guid: b28de9b3c485ada4d9d80e584a166f44, type: 3}
+  _rocketTower: {fileID: 7179653696307388462, guid: 1da7c5fe648b5524aa7ff5866b18b367, type: 3}
   _selectedColor: {r: 0, g: 0.9201095, b: 1, a: 0}
   _selectedTower: {fileID: 0}
   _towerDefaultColor: {r: 0, g: 0.65882355, b: 0.007843138, a: 0}
   currenState: 0
+  _canBuild: 0

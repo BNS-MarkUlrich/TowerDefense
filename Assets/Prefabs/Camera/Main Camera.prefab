@@ -119,6 +119,7 @@ MonoBehaviour:
   _speed: 40
   _hostile: {fileID: 0}
   bulletPrefab: {fileID: 2678675354604933705, guid: 721abc9faaeb3d248b7f06c15f5e1e59, type: 3}
+  laserPrefab: {fileID: 2678675354604933705, guid: 95cbdb2b9f7843949af3adb3ddfbd2dd, type: 3}
   _layer:
     serializedVersion: 2
     m_Bits: 64

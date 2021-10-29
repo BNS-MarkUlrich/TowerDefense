@@ -671,7 +671,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00:00:000
+  m_Text: 00:00:00
 --- !u!1 &3510122551004962161
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +750,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Health: ##'
+  m_Text: 'Health: ###'
 --- !u!1 &4432505169247302918
 GameObject:
   m_ObjectHideFlags: 0
