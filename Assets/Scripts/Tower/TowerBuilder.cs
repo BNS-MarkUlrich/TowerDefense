@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class TowerBuilder : MonoBehaviour
 {
 
-    [SerializeField] private GameObject _tower;
-    [SerializeField] private GameObject _rocketTower;
+    [SerializeField] private GameObject[] _tower;
     [SerializeField] private Color _selectedColor;
 
     public GameObject _selectedTower;
@@ -32,14 +31,14 @@ public class TowerBuilder : MonoBehaviour
 
     void SpawnLaserTurret(GameObject tower)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && tower != null) // Laser Turret
+        if (Input.GetKeyDown(KeyCode.Alpha1) && tower != null) // Stun Tower
         {
             if (_canBuild == true)
             {
                 if (_points >= 500)
                 {
                     _pointSystem.RemovePoints(500);
-                    Instantiate(_tower, _towerSpawn, tower.transform.rotation);
+                    Instantiate(_tower[0], _towerSpawn, tower.transform.rotation);
                     _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
                 }
                 else
@@ -54,14 +53,36 @@ public class TowerBuilder : MonoBehaviour
             _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
             currenState = States.SELECTIONSTATE;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && tower != null) // Rocket Tower
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && tower != null) // Laser Turret
         {
             if (_canBuild == true)
             {
-                if (_points >= 750)
+                if (_points >= 1000)
                 {
-                    _pointSystem.RemovePoints(750);
-                    Instantiate(_rocketTower, _towerSpawn, tower.transform.rotation);
+                    _pointSystem.RemovePoints(1000);
+                    Instantiate(_tower[1], _towerSpawn, tower.transform.rotation);
+                    _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
+                }
+                else
+                {
+                    _message.EnableMessageUI(_points + " is not enough points");
+                }
+            }
+            else
+            {
+                _message.EnableMessageUI("You cannot build on this tile!");
+            }
+            _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
+            currenState = States.SELECTIONSTATE;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && tower != null) // Rocket Tower
+        {
+            if (_canBuild == true)
+            {
+                if (_points >= 1500)
+                {
+                    _pointSystem.RemovePoints(1000);
+                    Instantiate(_tower[2], _towerSpawn, tower.transform.rotation);
                     _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
                 }
                 else

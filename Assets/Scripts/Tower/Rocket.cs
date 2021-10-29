@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rocket : Bullet
 {
-    public Health[] _hostilesInRange;
+    public Hostile[] _hostilesInRange;
 
     public override void Update()
     {
@@ -24,7 +24,7 @@ public class Rocket : Bullet
                 {
                     foreach (var hostile in _hostilesInRange)
                     {
-                        hostile.GetComponent<Health>().TakeDamage(_damage);
+                        hostile.GetComponent<Hostile>().TakeDamage(_damage);
                     }
                 }
                 else

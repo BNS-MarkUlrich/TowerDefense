@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2048456725024286584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2327789421325013828}
+  m_Layer: 0
+  m_Name: Anchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2327789421325013828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048456725024286584}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4221872740855266325}
+  m_Father: {fileID: 8996988327005001293}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7179653696307388462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8996988327005001293}
+  - component: {fileID: 2866407783417390256}
+  - component: {fileID: 4360143129939996916}
+  - component: {fileID: 4761637766505495801}
+  m_Layer: 0
+  m_Name: StunTower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8996988327005001293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7179653696307388462}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.33699, y: 0.33699, z: 0.33699}
+  m_Children:
+  - {fileID: 2327789421325013828}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2866407783417390256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7179653696307388462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11119a6595e26594d964e3f08fb41700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4360143129939996916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7179653696307388462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a76099e1dba6942a4f68951dd2ba1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 10
+  _layer:
+    serializedVersion: 2
+    m_Bits: 64
+  _detection: 0
+--- !u!114 &4761637766505495801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7179653696307388462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075f865104095ca43bf647715e751f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _allHostilesInRange: []
+--- !u!1001 &4403855913181010942
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2327789421325013828}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4cad8e8c3901e784c844c98c718f2eaf, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4cad8e8c3901e784c844c98c718f2eaf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4cad8e8c3901e784c844c98c718f2eaf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.041833162
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4cad8e8c3901e784c844c98c718f2eaf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4cad8e8c3901e784c844c98c718f2eaf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4cad8e8c3901e784c844c98c718f2eaf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000001621872
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4cad8e8c3901e784c844c98c718f2eaf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00000044703484
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4cad8e8c3901e784c844c98c718f2eaf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00000042673685
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4cad8e8c3901e784c844c98c718f2eaf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4cad8e8c3901e784c844c98c718f2eaf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4cad8e8c3901e784c844c98c718f2eaf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4cad8e8c3901e784c844c98c718f2eaf, type: 3}
+      propertyPath: m_Name
+      value: deathstar-tower-cannon-base
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4cad8e8c3901e784c844c98c718f2eaf, type: 3}
+--- !u!4 &4221872740855266325 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4cad8e8c3901e784c844c98c718f2eaf, type: 3}
+  m_PrefabInstance: {fileID: 4403855913181010942}
+  m_PrefabAsset: {fileID: 0}

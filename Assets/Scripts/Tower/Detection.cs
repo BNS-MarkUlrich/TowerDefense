@@ -32,7 +32,7 @@ public class Detection : MonoBehaviour
         }
     }
 
-    public Health[] AllInRangeChecker()
+    public Hostile[] AllInRangeChecker()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, _radius, _layer);
         if (hitColliders.Length < 1)
@@ -43,10 +43,10 @@ public class Detection : MonoBehaviour
         else
         {
             _detection = true;
-            List<Health> objectsInRange = new List<Health>();
+            List<Hostile> objectsInRange = new List<Hostile>();
             foreach (var hitCollider in hitColliders)
             {
-                objectsInRange.Add(hitCollider.GetComponent<Health>());
+                objectsInRange.Add(hitCollider.GetComponent<Hostile>());
             }
 
             return objectsInRange.ToArray();

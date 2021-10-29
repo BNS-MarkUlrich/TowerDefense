@@ -294,7 +294,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 160, y: -30, z: 0}
 --- !u!114 &916838078 stripped
 MonoBehaviour:
@@ -5458,7 +5458,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3247767067944126066, guid: 6dcb08699fa6faa4f96d6f4b60147349, type: 3}
       propertyPath: _minxMaxSpawnTime.x
-      value: 1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3247767067944126066, guid: 6dcb08699fa6faa4f96d6f4b60147349, type: 3}
       propertyPath: _minxMaxSpawnTime.y
@@ -5812,7 +5812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1641461899232267626, guid: 3230fea021e77d14d9c5e2a7fb11daa7, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1641461899232267626, guid: 3230fea021e77d14d9c5e2a7fb11daa7, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5981,6 +5981,10 @@ PrefabInstance:
     - target: {fileID: 7522129030464256912, guid: 3230fea021e77d14d9c5e2a7fb11daa7, type: 3}
       propertyPath: m_Text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450429848289907547, guid: 3230fea021e77d14d9c5e2a7fb11daa7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9042235585074345114, guid: 3230fea021e77d14d9c5e2a7fb11daa7, type: 3}
       propertyPath: m_Name

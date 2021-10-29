@@ -8,6 +8,7 @@ public class Hostile : Health
     [SerializeField] private UnityEvent onPathComplete;
     [SerializeField] private BaseLocation.Destination _destination;
     [SerializeField] public float _speed = 5.0f;
+    public float _originalSpeed;
     [SerializeField] public float _arrivalthreshold = 0.1f;
 
     public EnemyHealthDisplay healthbarValue;
@@ -22,6 +23,9 @@ public class Hostile : Health
     public Health _playerHealth;
 
     private PointSystem _pointSystem;
+
+    public float _slowTimer = 2;
+    public float _originalTimer;
 
     public override void Start()
     {
@@ -44,6 +48,8 @@ public class Hostile : Health
         _hostile.onPathComplete.AddListener(() => _playerHealth.TakeDamage(_damageAmount));
         updateHealthbar = healthbarValue.GetComponentInChildren<EnemyHealthDisplay>();
         updateHealthbar.Initialise(_startHealth, _currentHealth);
+        _originalSpeed = _speed;
+        _originalTimer = _slowTimer;
     }
 
     public override void TakeDamage(float dmg)
@@ -56,6 +62,23 @@ public class Hostile : Health
     {
         base.DeadState();
         _pointSystem.AddPoints(50);
+    }
+
+    public void SlowEnemy()
+    {
+        _originalTimer = _slowTimer;
+        _slowTimer = _originalTimer;
+        _slowTimer -= Time.deltaTime;
+        //Debug.Log(_originalSpeed);
+        if (_slowTimer > 0.0f)
+        {
+            _speed = _originalSpeed / 2f;
+        }
+        else
+        {
+            _speed = _originalSpeed;
+            _slowTimer = _originalTimer;
+        }
     }
 
     private void Update()

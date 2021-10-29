@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e5c13751f6156459250c4e875e23f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startHealth: 50
+  _startHealth: 100
   _currentHealth: 0
 --- !u!114 &8667966826295233967
 MonoBehaviour:

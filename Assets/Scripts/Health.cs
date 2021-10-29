@@ -17,7 +17,6 @@ public class Health : MonoBehaviour
     public virtual void TakeDamage(float dmg)
     {
         _currentHealth -= dmg;
-
         if (_currentHealth <= 0)
         {
             DeadState();

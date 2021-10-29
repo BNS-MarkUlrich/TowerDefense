@@ -17,6 +17,8 @@ public class WaveSpawner : MonoBehaviour
     public float _waveTimer;
     public float _waveNumber;
 
+    private WaveUI _waveUI;
+
     public void Start()
     {
         _waveTimer = 10;
@@ -25,6 +27,7 @@ public class WaveSpawner : MonoBehaviour
     public void Update()
     {
         _levelTimer = FindObjectOfType<LevelTimer>().levelTimer;
+        _waveUI = FindObjectOfType<WaveUI>();
         _enemySpawnTimer += Time.deltaTime;
         WaveHandler();
         if (_enemySpawnTimer >= _nextSpawnTime)
@@ -52,6 +55,7 @@ public class WaveSpawner : MonoBehaviour
         {
             _waveTimer += 10;
             _waveNumber += 1;
+            _waveUI.UpdateUI(_waveNumber);
         }
     }
 }
