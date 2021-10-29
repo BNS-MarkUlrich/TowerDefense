@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PointSystem : MonoBehaviour
 {
-    [SerializeField] private float _startPoints;
+    public float _startPoints;
     public float _currentPoints;
     public float CurrentPoints
     {

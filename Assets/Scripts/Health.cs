@@ -11,6 +11,8 @@ public class Health : MonoBehaviour
 
     public virtual void Start()
     {
+        //_startHealth = FindObjectOfType<PointSystem>()._startPoints; // Merge point and health system?
+        //_currentHealth = FindObjectOfType<PointSystem>()._currentPoints; // Merge point and health system?
         _currentHealth = _startHealth;
     }
 
@@ -27,7 +29,7 @@ public class Health : MonoBehaviour
     {
         if (_currentHealth <= 0)
         {
-            //Debug.Log("I am dead");
+            Debug.Log("I am dead");
             Destroy(this.gameObject);
         }
     }

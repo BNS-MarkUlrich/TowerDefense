@@ -21,7 +21,6 @@ public class StunTower : MonoBehaviour
             foreach (var hostile in _allHostilesInRange)
             {
                 hostile.SlowEnemy();
-                //hostile._speed = 2;
             }
         }
         return null;

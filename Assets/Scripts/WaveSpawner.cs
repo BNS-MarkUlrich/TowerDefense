@@ -19,10 +19,13 @@ public class WaveSpawner : MonoBehaviour
 
     private WaveUI _waveUI;
 
+    public Health _playerHealth;
+
     public void Start()
     {
         _waveTimer = 10;
         _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x, _minxMaxSpawnTime.y);
+        _playerHealth = GameObject.FindWithTag("PlayerBase").GetComponent<Health>();
     }
     public void Update()
     {
@@ -41,12 +44,19 @@ public class WaveSpawner : MonoBehaviour
     /// </summary>
     private void SpawnNextEnemy()
     {
-        int randomIndex = Random.Range(0, _enemyTypes.Length);
-        //_spawnLocation.transform.position = new Vector3(_spawnLocation.transform.position.x, _spawnLocation.transform.position.y, _spawnLocation.transform.position.z);
-        Instantiate(_enemyTypes[randomIndex], transform.position, transform.rotation, transform);
+        if (_playerHealth != null)
+        {
+            int randomIndex = Random.Range(0, _enemyTypes.Length);
+            //_spawnLocation.transform.position = new Vector3(_spawnLocation.transform.position.x, _spawnLocation.transform.position.y, _spawnLocation.transform.position.z);
+            Instantiate(_enemyTypes[randomIndex], transform.position, transform.rotation, transform);
 
-        _enemySpawnTimer = 0;
-        _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x, _minxMaxSpawnTime.y);
+            _enemySpawnTimer = 0;
+            _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x, _minxMaxSpawnTime.y);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void WaveHandler()

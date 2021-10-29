@@ -60,8 +60,15 @@ public class Hostile : Health
 
     public override void DeadState()
     {
-        base.DeadState();
-        _pointSystem.AddPoints(50);
+        if (_playerHealth != null)
+        {
+            base.DeadState();
+            _pointSystem.AddPoints(50);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void SlowEnemy()
@@ -83,19 +90,22 @@ public class Hostile : Health
 
     private void Update()
     {
-        Vector3 heightOffsetPosition = new Vector3(_destination.transform.position.x, _hostileHeight, _destination.transform.position.z);
-        float distance = Vector3.Distance(transform.position, heightOffsetPosition);
-
-        if (distance <= _arrivalthreshold)
+        if (_playerHealth != null)
         {
-            onPathComplete?.Invoke();
-            Destroy(this.gameObject);
+            Vector3 heightOffsetPosition = new Vector3(_destination.transform.position.x, _hostileHeight, _destination.transform.position.z);
+            float distance = Vector3.Distance(transform.position, heightOffsetPosition);
+
+            if (distance <= _arrivalthreshold)
+            {
+                onPathComplete?.Invoke();
+                Destroy(this.gameObject);
+            }
+
+            transform.LookAt(heightOffsetPosition);
+            transform.Translate(Vector3.forward * _speed * Time.deltaTime);
+
+            _pointSystem = FindObjectOfType<PointSystem>();
+            updateHealthbar.UpdateHP(_currentHealth);
         }
-
-        transform.LookAt(heightOffsetPosition);
-        transform.Translate(Vector3.forward * _speed * Time.deltaTime);
-
-        _pointSystem = FindObjectOfType<PointSystem>();
-        updateHealthbar.UpdateHP(_currentHealth);
     }
 }
