@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detected: 0
-  _shootTimer: 1
   _hostileInRange: {fileID: 0}
   bulletPrefab: {fileID: 2678675354604933705, guid: 721abc9faaeb3d248b7f06c15f5e1e59, type: 3}
+  _shootTimer: 1
 --- !u!1 &2048456725024286584
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a76099e1dba6942a4f68951dd2ba1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 3
+  _radius: 4
   _layer:
     serializedVersion: 2
     m_Bits: 64

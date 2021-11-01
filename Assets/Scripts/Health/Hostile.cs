@@ -13,7 +13,7 @@ public class Hostile : Health
     private EnemyHealthDisplay updateHealthbar;
 
     //private float _hostileHeight;
-    public Hostile _hostile;
+    //private Hostile _hostile;
     public float _damageAmount;
     public Health _playerHealth;
 
@@ -42,7 +42,7 @@ public class Hostile : Health
     public void SetupEnemy()
     {
         _playerHealth = GameObject.FindWithTag("PlayerBase").GetComponent<Health>();
-        _hostile.onPathComplete.AddListener(() => _playerHealth.TakeDamage(_damageAmount));
+        onPathComplete.AddListener(() => _playerHealth.TakeDamage(_damageAmount));
         updateHealthbar = healthbarValue.GetComponentInChildren<EnemyHealthDisplay>();
         updateHealthbar.Initialise(_startHealth, _currentHealth);
         _originalSpeed = _speed;
@@ -67,7 +67,7 @@ public class Hostile : Health
         }
         else
         {
-            Debug.Log("I am dead!");
+            //Debug.Log("I am dead!");
             Destroy(this.gameObject);
         }
     }
@@ -89,7 +89,7 @@ public class Hostile : Health
     {
         if (_playerHealth != null)
         {
-            float hostileHeight = transform.localScale.y;
+            float hostileHeight = transform.localScale.y * 2;
             Vector3 heightOffsetPosition = new Vector3(_currentWaypoint.transform.position.x, hostileHeight, _currentWaypoint.transform.position.z);
             float distance = Vector3.Distance(transform.position, heightOffsetPosition);
 

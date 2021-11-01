@@ -130,7 +130,6 @@ MonoBehaviour:
   _speed: 3
   _arrivalthreshold: 0.1
   healthbarValue: {fileID: 33447327169621846}
-  _hostile: {fileID: 54294533505793528}
   _damageAmount: 10
   _playerHealth: {fileID: 0}
   _pointsPerKill: 50
