@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class LaserTurret : BaseTower
 {
-    public float _shootTimer = 1.0f;
-    private float shootTimer;
-
     public GameObject _hostileInRange;
 
     [SerializeField] private GameObject bulletPrefab;
+    public float _shootTimer = 1.0f;
+    private float shootTimer;
 
     private void Start()
     {
         shootTimer = _shootTimer;
     }
-    
+
     public override void Update()
     {
         base.Update();

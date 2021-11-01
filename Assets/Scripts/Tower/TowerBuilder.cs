@@ -68,7 +68,7 @@ public class TowerBuilder : MonoBehaviour
                 currenState = States.SELECTIONSTATE;
             }
         }
-        else
+        else // Put most of the stuff below into separate scripts
         {
             _message.EnableMessageUI("Select new tower...");
             if (Input.GetKeyDown(KeyCode.Alpha1) && tower != null) // Stun Tower
@@ -166,7 +166,6 @@ public class TowerBuilder : MonoBehaviour
                         }
                         else
                         {
-                            // add revert material
                             if (_selectedTower != null)
                             {
                                 _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;
@@ -174,7 +173,6 @@ public class TowerBuilder : MonoBehaviour
                             }
                         }
                     }
-                    // Make Select and Deselect Tower functions that only handle the colour
                 }
                 break;
             case States.SPAWNSTATE:
@@ -191,7 +189,9 @@ public class TowerBuilder : MonoBehaviour
         if (_points >= points)
         {
             _pointSystem.RemovePoints(points);
-            Instantiate(tower, _towerSpawn, tower.transform.rotation);
+            float towerHeightSpawn = _towerSpawn.y * 2;
+            Vector3 towerSpawn = new Vector3(_selectedTower.transform.position.x, towerHeightSpawn, _selectedTower.transform.position.z);
+            Instantiate(tower, towerSpawn, tower.transform.rotation);
             _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
             _selectedTower.GetComponent<BuildOverride>()._towerNumber = towerNumber; // Saves the index of spawned tower into class variable
         }

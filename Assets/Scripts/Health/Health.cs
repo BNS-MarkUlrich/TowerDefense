@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] public float _startHealth = 3;
     public float _currentHealth;
-
-    //private new MeshRenderer renderer;
 
     public virtual void Start()
     {
@@ -29,16 +28,7 @@ public class Health : MonoBehaviour
     {
         if (_currentHealth <= 0)
         {
-            //Debug.Log("I am dead");
-            Destroy(this.gameObject);
+            SceneManager.LoadScene("LoseScreen");
         }
     }
-
-    /*IEnumerator PlayerDeadFeedback()
-    {
-        Material dmat = renderer.material;
-
-        dmat.color -= new Color(0.2f, 0.2f, 0.2f, 3.8f);
-        yield return null;
-    }*/
 }

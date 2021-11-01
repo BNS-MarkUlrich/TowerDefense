@@ -6,27 +6,26 @@ using UnityEngine.Events;
 public class Hostile : Health
 {
     [SerializeField] private UnityEvent onPathComplete;
-    [SerializeField] private BaseLocation.Destination _destination;
-    [SerializeField] public float _speed = 5.0f;
-    public float _originalSpeed;
-    [SerializeField] public float _arrivalthreshold = 0.1f;
+    public float _speed = 5.0f;
+    [SerializeField] private float _arrivalthreshold = 0.1f;
 
     public EnemyHealthDisplay healthbarValue;
     private EnemyHealthDisplay updateHealthbar;
 
-    private float _hostileHeight;
-
+    //private float _hostileHeight;
     public Hostile _hostile;
-
-    [SerializeField] public float _damageAmount;
-
+    public float _damageAmount;
     public Health _playerHealth;
 
     private PointSystem _pointSystem;
     public float _pointsPerKill = 1;
 
-    public float _slowTimer = 2;
+    public float _slowTimer = 1;
     public float _originalTimer;
+    public float _originalSpeed;
+
+    public Path _getPath;
+    private Waypoint _currentWaypoint;
 
     public override void Start()
     {
@@ -36,11 +35,8 @@ public class Hostile : Health
 
     private void Awake()
     {
-        _hostileHeight = transform.localScale.y / 2;
-        if (_destination == null)
-        {
-            _destination = GameObject.FindObjectOfType<BaseLocation.Destination>();
-        }
+        //_hostileHeight = transform.localScale.y * 2;
+        _getPath = GetComponentInParent<Path>();
     }
 
     public void SetupEnemy()
@@ -51,20 +47,23 @@ public class Hostile : Health
         updateHealthbar.Initialise(_startHealth, _currentHealth);
         _originalSpeed = _speed;
         _originalTimer = _slowTimer;
+        _currentWaypoint = _getPath.GetPathStart();
     }
 
     public override void TakeDamage(float dmg)
     {
         base.TakeDamage(dmg);
-        //_pointSystem.AddPoints(10);
     }
 
     public override void DeadState()
     {
         if (_playerHealth != null)
         {
-            base.DeadState();
-            _pointSystem.AddPoints(_pointsPerKill);
+            if (_currentHealth <= 0)
+            {
+                Destroy(this.gameObject);
+                _pointSystem.AddPoints(_pointsPerKill);
+            }
         }
         else
         {
@@ -75,37 +74,42 @@ public class Hostile : Health
 
     public void SlowEnemy()
     {
-        _originalTimer = _slowTimer;
+        StartCoroutine(SlowTimer());
+    }
+
+    public IEnumerator SlowTimer()
+    {
+        _speed = _originalSpeed / 2f;
+        yield return new WaitForSeconds(_slowTimer);
+        _speed = _originalSpeed;
         _slowTimer = _originalTimer;
-        _slowTimer -= Time.deltaTime;
-        //Debug.Log(_originalSpeed);
-        if (_slowTimer > 0.0f)
-        {
-            _speed = _originalSpeed / 2f;
-        }
-        else
-        {
-            _speed = _originalSpeed;
-            _slowTimer = _originalTimer;
-        }
     }
 
     private void Update()
     {
         if (_playerHealth != null)
         {
-            Vector3 heightOffsetPosition = new Vector3(_destination.transform.position.x, _hostileHeight, _destination.transform.position.z);
+            float hostileHeight = transform.localScale.y;
+            Vector3 heightOffsetPosition = new Vector3(_currentWaypoint.transform.position.x, hostileHeight, _currentWaypoint.transform.position.z);
             float distance = Vector3.Distance(transform.position, heightOffsetPosition);
 
             if (distance <= _arrivalthreshold)
             {
-                onPathComplete?.Invoke();
-                Destroy(this.gameObject);
+                if (_currentWaypoint == _getPath.GetPathEnd())
+                {
+                    onPathComplete?.Invoke();
+                    Destroy(this.gameObject);
+                }
+                else
+                {
+                    _currentWaypoint = _getPath.GetNextWaypoint(_currentWaypoint);
+                }
             }
-
-            transform.LookAt(heightOffsetPosition);
-            transform.Translate(Vector3.forward * _speed * Time.deltaTime);
-
+            else
+            {
+                transform.LookAt(heightOffsetPosition);
+                transform.Translate(Vector3.forward * _speed * Time.deltaTime);
+            }
             _pointSystem = FindObjectOfType<PointSystem>();
             updateHealthbar.UpdateHP(_currentHealth);
         }

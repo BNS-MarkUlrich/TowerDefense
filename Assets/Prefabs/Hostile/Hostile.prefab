@@ -127,17 +127,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 0
-  _destination: {fileID: 0}
-  _speed: 5
-  _originalSpeed: 0
+  _speed: 3
   _arrivalthreshold: 0.1
   healthbarValue: {fileID: 33447327169621846}
   _hostile: {fileID: 54294533505793528}
   _damageAmount: 10
   _playerHealth: {fileID: 0}
   _pointsPerKill: 50
-  _slowTimer: 2
+  _slowTimer: 1
   _originalTimer: 0
+  _originalSpeed: 0
+  _getPath: {fileID: 0}
 --- !u!54 &5352376038042853820
 Rigidbody:
   m_ObjectHideFlags: 0

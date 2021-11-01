@@ -6,6 +6,8 @@ public class StunTower : BaseTower
 {
     public Hostile[] _allHostilesInRange;
 
+    public float _originalSpeed;
+
     public override void Update()
     {
         base.Update();
@@ -17,9 +19,17 @@ public class StunTower : BaseTower
     {
         if (_detected != false)
         {
-            foreach (var hostile in _allHostilesInRange)
+            if (_allHostilesInRange != null)
             {
-                hostile.SlowEnemy();
+                foreach (var hostile in _allHostilesInRange)
+                {
+                    //StartCoroutine(SlowHostile(hostile));
+                    hostile.SlowEnemy();
+                }
+            }
+            else
+            {
+                _allHostilesInRange = gameObject.GetComponent<Detection>().AllInRangeChecker();
             }
         }
         return null;
