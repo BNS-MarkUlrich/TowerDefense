@@ -49,7 +49,6 @@ MonoBehaviour:
   _arrivalthreshold: 0.1
   _target: {fileID: 0}
   _damage: 1
-  worldPoint: {x: 751, y: 391, z: 0}
 --- !u!1 &3258671424737663223
 GameObject:
   m_ObjectHideFlags: 0

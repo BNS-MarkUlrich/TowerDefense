@@ -7,26 +7,26 @@ public class Hostile : Health
 {
     [SerializeField] protected UnityEvent onPathComplete;
     public float _speed = 5.0f;
-    protected float _arrivalthreshold = 0.1f;
+    private float _arrivalthreshold = 0.1f;
 
     public EnemyHealthDisplay healthbarValue;
-    protected EnemyHealthDisplay updateHealthbar;
+    private EnemyHealthDisplay updateHealthbar;
 
     //private float _hostileHeight;
     //private Hostile _hostile;
     public float _damageAmount;
-    protected Health _playerHealth;
+    private Health _playerHealth;
 
     protected PointSystem _pointSystem;
     public float _pointsPerKill = 1;
     public float _pointDrain;
 
     public float _slowTimer = 1;
-    protected float _originalTimer;
-    protected float _originalSpeed;
+    private float _originalTimer;
+    private float _originalSpeed;
 
-    protected Path _getPath;
-    protected Waypoint _currentWaypoint;
+    private Path _getPath;
+    public Waypoint _currentWaypoint;
 
     public override void Start()
     {

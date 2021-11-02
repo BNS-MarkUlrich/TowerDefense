@@ -121,6 +121,7 @@ MonoBehaviour:
   _pointsPerKill: 100
   _pointDrain: 100
   _slowTimer: 1
+  _currentWaypoint: {fileID: 0}
 --- !u!54 &5352376038042853820
 Rigidbody:
   m_ObjectHideFlags: 0

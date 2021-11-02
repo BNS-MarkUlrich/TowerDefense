@@ -73,49 +73,50 @@ public class TowerBuilder : MonoBehaviour
             _message.EnableMessageUI("Select new tower...");
             if (Input.GetKeyDown(KeyCode.Alpha1) && tower != null) // Stun Tower
             {
-                if (_towerNumber > 0)
-                {
-                    _message.EnableMessageUI("You cannot downgrade a tower!");
-                    SwitchBackToSelection();
-                }
-                else
+                if (_towerNumber == 0)
                 {
                     _message.EnableMessageUI("This tower already exists on this tile!");
                     SwitchBackToSelection();
                 }
+                else if (_towerNumber == 1)
+                {
+                    UpgradeTower(_tower[1], _tower[0], 500, 1);
+                }
+                else if (_towerNumber == 2)
+                {
+                    UpgradeTower(_tower[2], _tower[0], 500, 1);
+                }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2) && tower != null) // Laser Turret
             {
-                if (_towerNumber > 1)
+                if (_towerNumber == 0)
                 {
-                    _message.EnableMessageUI("You cannot downgrade a tower!");
-                    SwitchBackToSelection();
+                    UpgradeTower(_tower[0], _tower[1], 1000, 1);
                 }
                 else if (_towerNumber == 1)
                 {
                     _message.EnableMessageUI("This tower already exists on this tile!");
                     SwitchBackToSelection();
                 }
-                else
+                else if (_towerNumber == 2)
                 {
-                    UpgradeTower(_tower[0], _tower[1], 1000, 1);
+                    UpgradeTower(_tower[2], _tower[1], 1000, 1);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3) && tower != null) // Rocket Tower
             {
-                if (_towerNumber > 2)
+                if (_towerNumber == 0)
                 {
-                    _message.EnableMessageUI("You cannot downgrade a tower!");
-                    SwitchBackToSelection();
+                    UpgradeTower(_tower[0], _tower[2], 1500, 1);
+                }
+                else if (_towerNumber == 1)
+                {
+                    UpgradeTower(_tower[1], _tower[2], 1500, 1);
                 }
                 else if (_towerNumber == 2)
                 {
                     _message.EnableMessageUI("This tower already exists on this tile!");
                     SwitchBackToSelection();
-                }
-                else
-                {
-                    UpgradeTower(_tower[1], _tower[2], 1500, 2);
                 }
             }
             else if (Input.GetMouseButtonDown(0))
@@ -187,13 +188,10 @@ public class TowerBuilder : MonoBehaviour
         if (_points >= points)
         {
             _pointSystem.RemovePoints(points);
-            float towerHeightSpawn = _selectedTower.GetComponentInChildren<Transform>().position.y * 2;
-            if (towerHeightSpawn == 0)
-            {
-                towerHeightSpawn += _selectedTower.transform.localScale.y / 2;
-            }
+            float towerHeightSpawn = tower.transform.localScale.y * 2;
+            towerHeightSpawn += _selectedTower.transform.position.y;
             Vector3 towerSpawn = new Vector3(_selectedTower.transform.position.x, towerHeightSpawn, _selectedTower.transform.position.z);
-            Instantiate(tower, towerSpawn, tower.transform.rotation, _selectedTower.transform.parent);
+            Instantiate(tower, towerSpawn, tower.transform.rotation, _selectedTower.transform);
             _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
             _selectedTower.GetComponent<BuildOverride>()._towerNumber = towerNumber; // Saves the index of spawned tower into class variable
         }
@@ -211,13 +209,10 @@ public class TowerBuilder : MonoBehaviour
             OldTower = _selectedTower.GetComponentInChildren<Wrapper>().gameObject;
             Destroy(OldTower);
             _pointSystem.RemovePoints(points);
-            float towerHeightSpawn = _selectedTower.GetComponentInChildren<Transform>().position.y * 2;
-            if (towerHeightSpawn == 0)
-            {
-                towerHeightSpawn += _selectedTower.transform.localScale.y / 2;
-            }
+            float towerHeightSpawn = NewTower.transform.localScale.y * 2;
+            towerHeightSpawn += _selectedTower.transform.position.y;
             Vector3 towerSpawn = new Vector3(_selectedTower.transform.position.x, towerHeightSpawn, _selectedTower.transform.position.z);
-            Instantiate(NewTower, towerSpawn, NewTower.transform.rotation, _selectedTower.transform.parent);
+            Instantiate(NewTower, towerSpawn, NewTower.transform.rotation, _selectedTower.transform);
             _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
             _selectedTower.GetComponent<BuildOverride>()._towerNumber = towerNumber; // Saves the index of spawned tower into class variable
         }

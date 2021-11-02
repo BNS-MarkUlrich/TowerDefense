@@ -26,7 +26,14 @@ public class PointSystem : MonoBehaviour
 
     public void RemovePoints(float points)
     {
-        _currentPoints -= points;
-        _pointUI.UpdateUI(CurrentPoints);
+        if (_currentPoints <= 0)
+        {
+            _currentPoints = 0;
+        }
+        else
+        {
+            _currentPoints -= points;
+            _pointUI.UpdateUI(CurrentPoints);
+        }
     }
 }
