@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8060050018813727752}
   - component: {fileID: 7248573220565948278}
   - component: {fileID: 3689853806981187974}
-  - component: {fileID: 498158636176112270}
+  - component: {fileID: 3048859650501213564}
   m_Layer: 0
   m_Name: TowerSpawn
   m_TagString: TowerBuilder
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6919004442529107933}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.1, y: 0.125, z: -11.62}
-  m_LocalScale: {x: 2, y: 0.25, z: 2}
+  m_LocalPosition: {x: 7.1, y: 0.5, z: -11.62}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &498158636176112270
+--- !u!114 &3048859650501213564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

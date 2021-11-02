@@ -110,33 +110,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530a2c62ad427d54985581fae26189cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startHealth: 3
+  _startHealth: 5
   _currentHealth: 0
   onPathComplete:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 54294533505793509}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
+      m_Calls: []
   _speed: 3
-  _arrivalthreshold: 0.1
   healthbarValue: {fileID: 33447327169621846}
-  _damageAmount: 10
-  _playerHealth: {fileID: 0}
-  _pointsPerKill: 50
+  _damageAmount: 2
+  _pointsPerKill: 100
+  _pointDrain: 100
   _slowTimer: 1
-  _originalTimer: 0
-  _originalSpeed: 0
-  _getPath: {fileID: 0}
 --- !u!54 &5352376038042853820
 Rigidbody:
   m_ObjectHideFlags: 0

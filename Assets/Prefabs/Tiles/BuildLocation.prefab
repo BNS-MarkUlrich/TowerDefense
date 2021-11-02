@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3521569498389835784}
   m_Layer: 0
   m_Name: BuildLocation
-  m_TagString: Untagged
+  m_TagString: TowerBuilder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8296865412134313686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.375, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 924805090401520959}
@@ -48,7 +48,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6458105501299820482, guid: 5193be8f245a0684f925252e5fa22076, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6458105501299820482, guid: 5193be8f245a0684f925252e5fa22076, type: 3}
       propertyPath: m_LocalPosition.z
@@ -86,7 +86,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerSpawn
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 498158636176112270, guid: 5193be8f245a0684f925252e5fa22076, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5193be8f245a0684f925252e5fa22076, type: 3}
 --- !u!4 &924805090401520959 stripped
 Transform:

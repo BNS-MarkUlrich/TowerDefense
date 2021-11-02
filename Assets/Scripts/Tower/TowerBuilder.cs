@@ -98,8 +98,7 @@ public class TowerBuilder : MonoBehaviour
                 }
                 else
                 {
-                    // Add destruction of old tower when new tower is spawned, try using unity events?
-                    TowerShop(_tower[1], 1000, 1);
+                    UpgradeTower(_tower[0], _tower[1], 1000, 1);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3) && tower != null) // Rocket Tower
@@ -116,8 +115,7 @@ public class TowerBuilder : MonoBehaviour
                 }
                 else
                 {
-                    // Add destruction of old tower when new tower is spawned, try using unity events?
-                    TowerShop(_tower[2], 1500, 2);
+                    UpgradeTower(_tower[1], _tower[2], 1500, 2);
                 }
             }
             else if (Input.GetMouseButtonDown(0))
@@ -158,7 +156,7 @@ public class TowerBuilder : MonoBehaviour
                         if (hitInfo.transform.gameObject.tag == "TowerBuilder")
                         {
                             _selectedTower = hitInfo.transform.gameObject;
-                            _towerSpawn = new Vector3(_selectedTower.transform.position.x, _selectedTower.transform.position.y, _selectedTower.transform.position.z);
+                            //_towerSpawn = _selectedTower.GetComponentInChildren<Transform>().position;
                             _selectedTower.GetComponent<Renderer>().material.color = _selectedColor;
                             _canBuild = _selectedTower.GetComponent<BuildOverride>()._canBuild;
                             _towerNumber = _selectedTower.GetComponent<BuildOverride>()._towerNumber; // Assigns tower index upon selection to keep track of upgrade possibilities
@@ -189,9 +187,13 @@ public class TowerBuilder : MonoBehaviour
         if (_points >= points)
         {
             _pointSystem.RemovePoints(points);
-            float towerHeightSpawn = _towerSpawn.y * 2;
+            float towerHeightSpawn = _selectedTower.GetComponentInChildren<Transform>().position.y * 2;
+            if (towerHeightSpawn == 0)
+            {
+                towerHeightSpawn += _selectedTower.transform.localScale.y / 2;
+            }
             Vector3 towerSpawn = new Vector3(_selectedTower.transform.position.x, towerHeightSpawn, _selectedTower.transform.position.z);
-            Instantiate(tower, towerSpawn, tower.transform.rotation);
+            Instantiate(tower, towerSpawn, tower.transform.rotation, _selectedTower.transform);
             _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
             _selectedTower.GetComponent<BuildOverride>()._towerNumber = towerNumber; // Saves the index of spawned tower into class variable
         }
@@ -202,6 +204,31 @@ public class TowerBuilder : MonoBehaviour
         }
         SwitchBackToSelection();
     }
+    void UpgradeTower(GameObject OldTower, GameObject NewTower, float points, int towerNumber)
+    {
+        if (_points >= points)
+        {
+            OldTower = _selectedTower.GetComponentInChildren<Wrapper>().gameObject;
+            Destroy(OldTower);
+            _pointSystem.RemovePoints(points);
+            float towerHeightSpawn = _selectedTower.GetComponentInChildren<Transform>().position.y * 2;
+            if (towerHeightSpawn == 0)
+            {
+                towerHeightSpawn += _selectedTower.transform.localScale.y / 2;
+            }
+            Vector3 towerSpawn = new Vector3(_selectedTower.transform.position.x, towerHeightSpawn, _selectedTower.transform.position.z);
+            Instantiate(NewTower, towerSpawn, NewTower.transform.rotation, _selectedTower.transform);
+            _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
+            _selectedTower.GetComponent<BuildOverride>()._towerNumber = towerNumber; // Saves the index of spawned tower into class variable
+        }
+        else
+        {
+            float pointsShort = points - _points;
+            _message.EnableMessageUI("You need " + pointsShort + " more points to buy " + NewTower.name);
+        }
+        SwitchBackToSelection();
+    }
+
     void SwitchBackToSelection()
     {
         _selectedTower.GetComponent<Renderer>().material.color = _towerDefaultColor;

@@ -5,27 +5,28 @@ using UnityEngine.Events;
 
 public class Hostile : Health
 {
-    [SerializeField] private UnityEvent onPathComplete;
+    [SerializeField] protected UnityEvent onPathComplete;
     public float _speed = 5.0f;
-    [SerializeField] private float _arrivalthreshold = 0.1f;
+    protected float _arrivalthreshold = 0.1f;
 
     public EnemyHealthDisplay healthbarValue;
-    private EnemyHealthDisplay updateHealthbar;
+    protected EnemyHealthDisplay updateHealthbar;
 
     //private float _hostileHeight;
     //private Hostile _hostile;
     public float _damageAmount;
-    public Health _playerHealth;
+    protected Health _playerHealth;
 
-    private PointSystem _pointSystem;
+    protected PointSystem _pointSystem;
     public float _pointsPerKill = 1;
+    public float _pointDrain;
 
     public float _slowTimer = 1;
-    public float _originalTimer;
-    public float _originalSpeed;
+    protected float _originalTimer;
+    protected float _originalSpeed;
 
-    public Path _getPath;
-    private Waypoint _currentWaypoint;
+    protected Path _getPath;
+    protected Waypoint _currentWaypoint;
 
     public override void Start()
     {
@@ -33,7 +34,7 @@ public class Hostile : Health
         SetupEnemy();
     }
 
-    private void Awake()
+    public void Awake()
     {
         //_hostileHeight = transform.localScale.y * 2;
         _getPath = GetComponentInParent<Path>();
@@ -85,7 +86,7 @@ public class Hostile : Health
         _slowTimer = _originalTimer;
     }
 
-    private void Update()
+    public void PathFollower()
     {
         if (_playerHealth != null)
         {
@@ -98,6 +99,7 @@ public class Hostile : Health
                 if (_currentWaypoint == _getPath.GetPathEnd())
                 {
                     onPathComplete?.Invoke();
+                    _pointSystem.RemovePoints(_pointDrain);
                     Destroy(this.gameObject);
                 }
                 else
@@ -113,5 +115,10 @@ public class Hostile : Health
             _pointSystem = FindObjectOfType<PointSystem>();
             updateHealthbar.UpdateHP(_currentHealth);
         }
+    }
+
+    public virtual void Update()
+    {
+        PathFollower();
     }
 }

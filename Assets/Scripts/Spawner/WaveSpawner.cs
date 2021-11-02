@@ -5,7 +5,6 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private Hostile[] _enemyTypes; // Use Prefab Variants
-    [SerializeField] private GameObject _hostileScale;
     [SerializeField] private Vector2 _minxMaxSpawnTime;
 
     public bool stopSpawning = false;
@@ -54,7 +53,7 @@ public class WaveSpawner : MonoBehaviour
     {
         if (_waveTimer <= _levelTimer + 10)
         {
-            _waveTimer += 10;
+            _waveTimer += 60;
             _waveNumber += 1;
             _waveUI.UpdateUI(_waveNumber);
         }
