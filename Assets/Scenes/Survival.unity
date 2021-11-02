@@ -375,7 +375,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1089281529173799676, guid: a14b53247c950634eb76989e808b8c06, type: 3}
       propertyPath: _startPoints
-      value: 2000
+      value: 200000
       objectReference: {fileID: 0}
     - target: {fileID: 4404975310587455545, guid: a14b53247c950634eb76989e808b8c06, type: 3}
       propertyPath: m_Name

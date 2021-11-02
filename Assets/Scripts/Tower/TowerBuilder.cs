@@ -193,7 +193,7 @@ public class TowerBuilder : MonoBehaviour
                 towerHeightSpawn += _selectedTower.transform.localScale.y / 2;
             }
             Vector3 towerSpawn = new Vector3(_selectedTower.transform.position.x, towerHeightSpawn, _selectedTower.transform.position.z);
-            Instantiate(tower, towerSpawn, tower.transform.rotation, _selectedTower.transform);
+            Instantiate(tower, towerSpawn, tower.transform.rotation, _selectedTower.transform.parent);
             _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
             _selectedTower.GetComponent<BuildOverride>()._towerNumber = towerNumber; // Saves the index of spawned tower into class variable
         }
@@ -217,7 +217,7 @@ public class TowerBuilder : MonoBehaviour
                 towerHeightSpawn += _selectedTower.transform.localScale.y / 2;
             }
             Vector3 towerSpawn = new Vector3(_selectedTower.transform.position.x, towerHeightSpawn, _selectedTower.transform.position.z);
-            Instantiate(NewTower, towerSpawn, NewTower.transform.rotation, _selectedTower.transform);
+            Instantiate(NewTower, towerSpawn, NewTower.transform.rotation, _selectedTower.transform.parent);
             _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
             _selectedTower.GetComponent<BuildOverride>()._towerNumber = towerNumber; // Saves the index of spawned tower into class variable
         }

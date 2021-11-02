@@ -86,7 +86,7 @@ public class Hostile : Health
         _slowTimer = _originalTimer;
     }
 
-    public void PathFollower()
+    public virtual void Update()
     {
         if (_playerHealth != null)
         {
@@ -115,10 +115,5 @@ public class Hostile : Health
             _pointSystem = FindObjectOfType<PointSystem>();
             updateHealthbar.UpdateHP(_currentHealth);
         }
-    }
-
-    public virtual void Update()
-    {
-        PathFollower();
     }
 }
