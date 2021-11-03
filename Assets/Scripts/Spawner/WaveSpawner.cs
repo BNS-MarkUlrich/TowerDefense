@@ -19,8 +19,8 @@ public class WaveSpawner : MonoBehaviour
     private bool _startLevel;
     private bool activate;
 
-    public float minxMaxSpawnTimeX;
-    public float minxMaxSpawnTimeY;
+    [SerializeField] private float divideSpawnTime = 2f;
+
 
     private WaveNameUI _waveUI;
 
@@ -28,7 +28,6 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x, _minxMaxSpawnTime.y);
         activate = true;
     }
     private void Update()
@@ -37,11 +36,27 @@ public class WaveSpawner : MonoBehaviour
         _waveNumber = FindObjectOfType<WaveHandler>()._waveNumber;
         _startLevel = FindObjectOfType<WaveHandler>()._startLevel;
         _enemySpawnTimer += Time.deltaTime;
+        GetSpawnTimer();
 
         if (_enemySpawnTimer >= _nextSpawnTime)
         {
             SpawnNextEnemy();
         }
+    }
+
+    private void NormalSpawnTimer()
+    {
+        _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x, _minxMaxSpawnTime.y);
+    }
+
+    private void FastSpawnTimer()
+    {
+        _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x / divideSpawnTime, _minxMaxSpawnTime.y / divideSpawnTime);
+    }
+
+    private float GetSpawnTimer()
+    {
+        return _nextSpawnTime;
     }
 
     /// <summary>
@@ -54,6 +69,7 @@ public class WaveSpawner : MonoBehaviour
             case States.StartGame:
                 if (_startLevel == true)
                 {
+                    _numberOfBosses = 0;
                     currentWave = States.Wave1;
                 }
                 break;
@@ -61,6 +77,7 @@ public class WaveSpawner : MonoBehaviour
                 if (_waveNumber == 1)
                 {
                     _waveUI.UpdateWaveName("Bosswave");
+                    Invoke("NormalSpawnTimer", 0.1f);
                     Instantiate(_enemyTypes[0], transform.position, _enemyTypes[0].transform.rotation, transform);
                 }
                 else
@@ -72,9 +89,8 @@ public class WaveSpawner : MonoBehaviour
             case States.Wave2:
                 if (_waveNumber == 2)
                 {
-                    minxMaxSpawnTimeX = _minxMaxSpawnTime.x / 1.5f; // Doesn't work yet
-                    minxMaxSpawnTimeY = _minxMaxSpawnTime.y / 1.5f; // Doesn't work yet
-                    _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x, _minxMaxSpawnTime.y);
+                    _waveUI.UpdateWaveName("Special Enemies");
+                    Invoke("FastSpawnTimer", 0.1f);
                     Instantiate(_enemyTypes[0], transform.position, transform.rotation, transform);
                     Invoke("SpawnBoss", 1);
                 }
@@ -86,7 +102,8 @@ public class WaveSpawner : MonoBehaviour
             case States.Wave3:
                 if (_waveNumber == 3)
                 {
-                    _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x, _minxMaxSpawnTime.y);
+                    _waveUI.UpdateWaveName("Bosswave");
+                    Invoke("NormalSpawnTimer", 0.1f);
                     NormalWave();
                 }
                 else
@@ -98,9 +115,8 @@ public class WaveSpawner : MonoBehaviour
             case States.Wave4:
                 if (_waveNumber == 4)
                 {
-                    minxMaxSpawnTimeX = _minxMaxSpawnTime.x / 1.5f; // Doesn't work yet
-                    minxMaxSpawnTimeY = _minxMaxSpawnTime.y / 1.5f; // Doesn't work yet
-                    _nextSpawnTime = Random.Range(minxMaxSpawnTimeX, minxMaxSpawnTimeY);
+                    _waveUI.UpdateWaveName("Medium Lane");
+                    Invoke("FastSpawnTimer", 0.1f);
                     NormalWave();
                     Invoke("SpawnBoss", 1);
                 }
@@ -112,8 +128,9 @@ public class WaveSpawner : MonoBehaviour
             case States.Wave5:
                 if (_waveNumber == 5)
                 {
+                    _waveUI.UpdateWaveName("Bosswave");
                     FindObjectOfType<LaneActivator>()._medium = activate;
-                    _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x, _minxMaxSpawnTime.y);
+                    Invoke("NormalSpawnTimer", 0.1f);
                     NormalWave();
                 }
                 else
@@ -125,9 +142,8 @@ public class WaveSpawner : MonoBehaviour
             case States.Wave6:
                 if (_waveNumber == 6)
                 {
-                    minxMaxSpawnTimeX = _minxMaxSpawnTime.x / 1.5f; // Doesn't work yet
-                    minxMaxSpawnTimeY = _minxMaxSpawnTime.y / 1.5f; // Doesn't work yet
-                    _nextSpawnTime = Random.Range(minxMaxSpawnTimeX, minxMaxSpawnTimeY);
+                    _waveUI.UpdateWaveName("Hard Lane");
+                    Invoke("FastSpawnTimer", 0.1f);
                     NormalWave();
                     Invoke("SpawnBoss", 1);
                 }
@@ -139,8 +155,9 @@ public class WaveSpawner : MonoBehaviour
             case States.Wave7:
                 if (_waveNumber == 7)
                 {
+                    _waveUI.UpdateWaveName("Bosswave");
                     FindObjectOfType<LaneActivator>()._hard = activate;
-                    _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x, _minxMaxSpawnTime.y);
+                    Invoke("NormalSpawnTimer", 0.1f);
                     NormalWave();
                 }
                 else
@@ -152,9 +169,8 @@ public class WaveSpawner : MonoBehaviour
             case States.Wave8:
                 if (_waveNumber == 8)
                 {
-                    minxMaxSpawnTimeX = _minxMaxSpawnTime.x / 1.5f; // Doesn't work yet
-                    minxMaxSpawnTimeY = _minxMaxSpawnTime.y / 1.5f; // Doesn't work yet
-                    _nextSpawnTime = Random.Range(minxMaxSpawnTimeX, minxMaxSpawnTimeY);
+                    _waveUI.UpdateWaveName("VeryHard Lane");
+                    Invoke("FastSpawnTimer", 0.1f);
                     NormalWave();
                     Invoke("SpawnBoss", 1);
                 }
@@ -166,8 +182,9 @@ public class WaveSpawner : MonoBehaviour
             case States.Wave9:
                 if (_waveNumber == 9)
                 {
+                    _waveUI.UpdateWaveName("Superwave");
                     FindObjectOfType<LaneActivator>()._veryHard = activate;
-                    _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x, _minxMaxSpawnTime.y);
+                    Invoke("NormalSpawnTimer", 0.1f);
                     NormalWave();
                 }
                 else
@@ -179,9 +196,8 @@ public class WaveSpawner : MonoBehaviour
             case States.Wave10:
                 if (_waveNumber == 10)
                 {
-                    minxMaxSpawnTimeX = _minxMaxSpawnTime.x / 1.5f; // Doesn't work yet
-                    minxMaxSpawnTimeY = _minxMaxSpawnTime.y / 1.5f; // Doesn't work yet
-                    _nextSpawnTime = Random.Range(minxMaxSpawnTimeX, minxMaxSpawnTimeY);
+                    _waveUI.UpdateWaveName("Superwave");
+                    Invoke("FastSpawnTimer", 0.1f);
                     NormalWave();
                     Invoke("SpawnBoss", 1);
                 }
@@ -193,11 +209,10 @@ public class WaveSpawner : MonoBehaviour
             case States.SuperWave:
                 if (_waveNumber >= 10)
                 {
-                    minxMaxSpawnTimeX = _minxMaxSpawnTime.x / 2f; // Doesn't work yet
-                    minxMaxSpawnTimeY = _minxMaxSpawnTime.y / 2f; // Doesn't work yet
-                    _nextSpawnTime = Random.Range(minxMaxSpawnTimeX, minxMaxSpawnTimeY);
+                    Invoke("FastSpawnTimer", 0.1f);
                     NormalWave();
-                    Invoke("SpawnBoss", 60);
+                    InvokeRepeating("SpawnBoss", 1, 60);
+                    InvokeRepeating("SpawnBoss", 1, 90);
                 }
                 else
                 {
@@ -214,7 +229,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void NormalWave()
     {
-        int randomIndex = Random.Range(0, _enemyTypes.Length-1);
+        int randomIndex = Random.Range(0, _enemyTypes.Length - 1);
         Instantiate(_enemyTypes[randomIndex], transform.position, transform.rotation, transform);
     }
 

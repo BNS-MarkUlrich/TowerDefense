@@ -8,7 +8,7 @@ public class LaserTurret : BaseTower
 
     [SerializeField] private GameObject bulletPrefab;
     public float _shootTimer = 1.0f;
-    private float shootTimer;
+    protected float shootTimer;
 
     private void Start()
     {

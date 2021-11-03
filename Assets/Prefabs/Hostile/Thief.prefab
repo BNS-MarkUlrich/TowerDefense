@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1649fa2486b60934cad7f2fa1f6cf9d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startHealth: 4
+  _startHealth: 5
   _currentHealth: 0
   onPathComplete:
     m_PersistentCalls:
@@ -21,7 +21,7 @@ MonoBehaviour:
   healthbarValue: {fileID: 486944833407360412}
   _damageAmount: 0
   _pointsPerKill: 0
-  _pointDrain: 1000
+  _pointDrain: 500
   _slowTimer: 1
   _currentWaypoint: {fileID: 0}
   _thiefTimer: 0

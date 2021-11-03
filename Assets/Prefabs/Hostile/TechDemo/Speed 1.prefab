@@ -21,11 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793528, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: _pointDrain
-      value: 50
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793528, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: _startHealth
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793528, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: _damageAmount

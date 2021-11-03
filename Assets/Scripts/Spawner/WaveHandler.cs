@@ -20,7 +20,7 @@ public class WaveHandler : MonoBehaviour
     {
         _levelTimer = FindObjectOfType<LevelTimer>();
         _waveUI = FindObjectOfType<WaveUI>();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
         {
             _startLevel = true;
         }

@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You can now build towers and
+  m_Text: 'You can already build towers and
 
     devise your strategy before starting!'
 --- !u!1 &1315266911068681474
@@ -1874,8 +1874,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waveText: {fileID: 4321291299894735575}
-  _waveTimer: 60
-  _localWaveTimer: 0
 --- !u!1 &5336699733873519368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2106,7 +2104,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press "SPACE" to start...
+  m_Text: Press "ENTER" to start...
 --- !u!1 &6305892862845701196
 GameObject:
   m_ObjectHideFlags: 0
@@ -3079,6 +3077,7 @@ GameObject:
   - component: {fileID: 3523413780557179080}
   - component: {fileID: 5382350906960356121}
   - component: {fileID: 3072983838262289901}
+  - component: {fileID: 2779548312139446983}
   m_Layer: 5
   m_Name: MessagePanel
   m_TagString: Untagged
@@ -3159,3 +3158,17 @@ MonoBehaviour:
   _text: {fileID: 7417136703058872811}
   _disableTime: 3
   _messageManager: {fileID: 0}
+--- !u!114 &2779548312139446983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9042235585074345114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8cb01952e8914449406aa4b43f098e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healingCost: 1000
+  _healing: 10

@@ -22,6 +22,7 @@ public class TowerBuilder : MonoBehaviour
     private MessagesUI _message;
 
     public bool _canBuild;
+    public bool _startTimer;
     public int _towerNumber;
 
     private void Start()
@@ -81,10 +82,12 @@ public class TowerBuilder : MonoBehaviour
                 else if (_towerNumber == 1)
                 {
                     UpgradeTower(_tower[1], _tower[0], 500, 1);
+                    _pointSystem.AddPoints(1000);
                 }
                 else if (_towerNumber == 2)
                 {
                     UpgradeTower(_tower[2], _tower[0], 500, 1);
+                    _pointSystem.AddPoints(1500);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2) && tower != null) // Laser Turret
@@ -92,6 +95,7 @@ public class TowerBuilder : MonoBehaviour
                 if (_towerNumber == 0)
                 {
                     UpgradeTower(_tower[0], _tower[1], 1000, 1);
+                    _pointSystem.AddPoints(500);
                 }
                 else if (_towerNumber == 1)
                 {
@@ -101,6 +105,7 @@ public class TowerBuilder : MonoBehaviour
                 else if (_towerNumber == 2)
                 {
                     UpgradeTower(_tower[2], _tower[1], 1000, 1);
+                    _pointSystem.AddPoints(1500);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3) && tower != null) // Rocket Tower
@@ -108,10 +113,12 @@ public class TowerBuilder : MonoBehaviour
                 if (_towerNumber == 0)
                 {
                     UpgradeTower(_tower[0], _tower[2], 1500, 1);
+                    _pointSystem.AddPoints(500);
                 }
                 else if (_towerNumber == 1)
                 {
                     UpgradeTower(_tower[1], _tower[2], 1500, 1);
+                    _pointSystem.AddPoints(1000);
                 }
                 else if (_towerNumber == 2)
                 {
@@ -192,6 +199,7 @@ public class TowerBuilder : MonoBehaviour
             towerHeightSpawn += _selectedTower.transform.position.y;
             Vector3 towerSpawn = new Vector3(_selectedTower.transform.position.x, towerHeightSpawn, _selectedTower.transform.position.z);
             Instantiate(tower, towerSpawn, tower.transform.rotation, _selectedTower.transform);
+            _startTimer = true;
             _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
             _selectedTower.GetComponent<BuildOverride>()._towerNumber = towerNumber; // Saves the index of spawned tower into class variable
         }
@@ -213,6 +221,7 @@ public class TowerBuilder : MonoBehaviour
             towerHeightSpawn += _selectedTower.transform.position.y;
             Vector3 towerSpawn = new Vector3(_selectedTower.transform.position.x, towerHeightSpawn, _selectedTower.transform.position.z);
             Instantiate(NewTower, towerSpawn, NewTower.transform.rotation, _selectedTower.transform);
+            _startTimer = true;
             _selectedTower.GetComponent<BuildOverride>()._canBuild = false;
             _selectedTower.GetComponent<BuildOverride>()._towerNumber = towerNumber; // Saves the index of spawned tower into class variable
         }
@@ -241,5 +250,4 @@ public class TowerBuilder : MonoBehaviour
         SELECTIONSTATE,
         SPAWNSTATE
     }
-
 }

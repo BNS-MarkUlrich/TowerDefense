@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 54294533505793528}
   - component: {fileID: 5352376038042853820}
   m_Layer: 6
-  m_Name: Hostile
+  m_Name: Hostile 1
   m_TagString: Hostile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530a2c62ad427d54985581fae26189cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startHealth: 8
+  _startHealth: 5
   _currentHealth: 0
   onPathComplete:
     m_PersistentCalls:
@@ -119,7 +119,7 @@ MonoBehaviour:
   healthbarValue: {fileID: 33447327169621846}
   _damageAmount: 2
   _pointsPerKill: 100
-  _pointDrain: 25
+  _pointDrain: 100
   _slowTimer: 1
   _currentWaypoint: {fileID: 0}
 --- !u!54 &5352376038042853820

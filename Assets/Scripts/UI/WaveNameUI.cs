@@ -7,7 +7,7 @@ public class WaveNameUI : MonoBehaviour
 {
     [SerializeField] private Text _waveText;
 
-    [SerializeField] private float _waveTimer = 60;
+    /*[SerializeField] private float _waveTimer = 60;
     [SerializeField] private float _localWaveTimer;
 
     private void Start()
@@ -27,10 +27,11 @@ public class WaveNameUI : MonoBehaviour
             }
             string.Format("{0:00}", _localWaveTimer);
         }
-    }
+    }*/
 
     public void UpdateWaveName(string waveName)
     {
-        _waveText.text = string.Format("{0:00}", _localWaveTimer) + ": " + waveName;
+        //_waveText.text = string.Format("{0:00}", _localWaveTimer) + ": " + waveName;
+        _waveText.text = "Next: " + waveName;
     }
 }

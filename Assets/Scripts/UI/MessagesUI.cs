@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class MessagesUI : MonoBehaviour
 {
-    [SerializeField] private Text _text;
-    [SerializeField] private float _disableTime = 3;
+    [SerializeField] protected Text _text;
+    [SerializeField] protected float _disableTime = 3;
 
-    [SerializeField] private MessageManager _messageManager;
+    [SerializeField] protected MessageManager _messageManager;
 
-    void Awake()
+    private void Awake()
     {
         DisableMessage();
     }
 
-    public void EnableMessageUI(string message)
+    public virtual void EnableMessageUI(string message)
     {
         if (_messageManager._messageON != true)
         {
@@ -35,7 +35,7 @@ public class MessagesUI : MonoBehaviour
         }
     }
 
-    private void DisableMessage()
+    public virtual void DisableMessage()
     {
         _messageManager.MessageOFF();
         _text.text = " ";

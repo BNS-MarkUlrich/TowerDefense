@@ -54,14 +54,14 @@ public class PlayerTurret : MonoBehaviour
                 aBullet.transform.LookAt(_hostile.transform);
                 aBullet.GetComponent<Bullet>()._target = _hostile;
             }
-            else
+            /*else
             {
                 Instantiate(laserPrefab, transform.position, laserPrefab.transform.rotation);
 
                 laserPrefab.GetComponent<Laser>().worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 //laserPrefab.transform.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 //laserPrefab.transform.position = Vector3.MoveTowards(laserPrefab.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), step);
-            }
+            }*/
         }
     }
 }
