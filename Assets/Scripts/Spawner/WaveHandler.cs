@@ -33,7 +33,7 @@ public class WaveHandler : MonoBehaviour
         {
             if (_waveTimer <= _levelTimer.levelTimer + 10)
             {
-                _waveTimer += 5;
+                _waveTimer += 60;
                 _waveNumber += 1;
                 _waveUI.UpdateUI(_waveNumber);
             }

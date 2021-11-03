@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -23,6 +22,8 @@ public class WaveSpawner : MonoBehaviour
     public float minxMaxSpawnTimeX;
     public float minxMaxSpawnTimeY;
 
+    private WaveNameUI _waveUI;
+
     public States currentWave = States.StartGame;
 
     private void Start()
@@ -32,6 +33,7 @@ public class WaveSpawner : MonoBehaviour
     }
     private void Update()
     {
+        _waveUI = FindObjectOfType<WaveNameUI>();
         _waveNumber = FindObjectOfType<WaveHandler>()._waveNumber;
         _startLevel = FindObjectOfType<WaveHandler>()._startLevel;
         _enemySpawnTimer += Time.deltaTime;
@@ -58,6 +60,7 @@ public class WaveSpawner : MonoBehaviour
             case States.Wave1:
                 if (_waveNumber == 1)
                 {
+                    _waveUI.UpdateWaveName("Bosswave");
                     Instantiate(_enemyTypes[0], transform.position, _enemyTypes[0].transform.rotation, transform);
                 }
                 else
