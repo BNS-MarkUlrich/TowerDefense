@@ -10,24 +10,19 @@ public class LaneActivator : MonoBehaviour
     public bool _hard;
     public bool _veryHard;
 
-    void Update()
-    {
-        AddDifficultyLane();
-    }
-
-    private void AddDifficultyLane()
+    public void Update()
     {
         if (_medium == true)
         {
-            _difficultyLanes[0].SetActive(true);
+            _difficultyLanes[0].SetActive(_medium);
         }
-        else if (_hard == true)
+        if (_hard == true)
         {
-            _difficultyLanes[1].SetActive(true);
+            _difficultyLanes[1].SetActive(_hard);
         }
-        else if (_veryHard == true)
+        if (_veryHard == true)
         {
-            _difficultyLanes[2].SetActive(true);
+            _difficultyLanes[2].SetActive(_veryHard);
         }
     }
 }

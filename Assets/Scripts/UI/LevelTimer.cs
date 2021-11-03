@@ -8,6 +8,7 @@ public class LevelTimer : MonoBehaviour
     public float levelTimer;
 
     public Text timeText;
+    [SerializeField] private GameObject _messagePanel;
     [SerializeField] private Text _message;
     [SerializeField] private Text _messageExplanation;
 
@@ -24,8 +25,9 @@ public class LevelTimer : MonoBehaviour
 
             timeText.text = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliSeconds);
 
-            _message.text = ("");
-            _messageExplanation.text = ("");
+            _messagePanel.SetActive(false);
+            //_message.text = ("");
+            //_messageExplanation.text = ("");
         }
     }
 }

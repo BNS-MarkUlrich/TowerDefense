@@ -12,7 +12,7 @@ public class Laser : Bullet
     }
     public override void CannonFire()
     {
-        Vector3 heightOffsetPosition = new Vector3(worldPoint.x, worldPoint.y, worldPoint.z);
+        Vector3 heightOffsetPosition = new Vector3(-worldPoint.x, -worldPoint.y, -worldPoint.z);
         float distance = Vector3.Distance(transform.position, heightOffsetPosition);
         transform.LookAt(worldPoint);
         if (distance <= _arrivalthreshold)

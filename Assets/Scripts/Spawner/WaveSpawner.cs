@@ -18,6 +18,7 @@ public class WaveSpawner : MonoBehaviour
 
     private float _waveNumber;
     private bool _startLevel;
+    private bool activate;
 
     public float minxMaxSpawnTimeX;
     public float minxMaxSpawnTimeY;
@@ -27,6 +28,7 @@ public class WaveSpawner : MonoBehaviour
     private void Start()
     {
         _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x, _minxMaxSpawnTime.y);
+        activate = true;
     }
     private void Update()
     {
@@ -107,7 +109,6 @@ public class WaveSpawner : MonoBehaviour
             case States.Wave5:
                 if (_waveNumber == 5)
                 {
-                    bool activate = true;
                     FindObjectOfType<LaneActivator>()._medium = activate;
                     _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x, _minxMaxSpawnTime.y);
                     NormalWave();
@@ -135,7 +136,6 @@ public class WaveSpawner : MonoBehaviour
             case States.Wave7:
                 if (_waveNumber == 7)
                 {
-                    bool activate = true;
                     FindObjectOfType<LaneActivator>()._hard = activate;
                     _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x, _minxMaxSpawnTime.y);
                     NormalWave();
@@ -163,7 +163,6 @@ public class WaveSpawner : MonoBehaviour
             case States.Wave9:
                 if (_waveNumber == 9)
                 {
-                    bool activate = true;
                     FindObjectOfType<LaneActivator>()._veryHard = activate;
                     _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x, _minxMaxSpawnTime.y);
                     NormalWave();
