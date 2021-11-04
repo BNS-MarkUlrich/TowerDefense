@@ -51,7 +51,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void FastSpawnTimer()
     {
-        _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x / divideSpawnTime, _minxMaxSpawnTime.y / divideSpawnTime);
+        _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x / 2, _minxMaxSpawnTime.y / 2);
     }
 
     private float GetSpawnTimer()
