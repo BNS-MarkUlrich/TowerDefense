@@ -10,10 +10,14 @@ public class LaserTurret : BaseTower
     public float _shootTimer = 1.0f;
     protected float shootTimer;
 
+    public AudioSource _turretFireAudio;
+
     public override void Start()
     {
         base.Start();
         shootTimer = _shootTimer;
+
+        _turretFireAudio = GetComponent<AudioSource>();
     }
 
     public override void Update()
@@ -38,6 +42,8 @@ public class LaserTurret : BaseTower
                 transform.LookAt(_hostileInRange.transform.position);
                 if (_shootTimer <= 0.0f)
                 {
+                    _turretFireAudio.Play();
+
                     GameObject abullet = Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
                     abullet.transform.LookAt(_hostileInRange.transform);
                     abullet.GetComponent<Bullet>()._target = _hostileInRange;

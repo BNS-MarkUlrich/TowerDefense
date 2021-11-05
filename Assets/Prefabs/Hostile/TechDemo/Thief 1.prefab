@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1649fa2486b60934cad7f2fa1f6cf9d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startHealth: 4
+  _startHealth: 3
   _currentHealth: 0
   onPathComplete:
     m_PersistentCalls:
@@ -24,6 +24,7 @@ MonoBehaviour:
   _pointDrain: 1000
   _slowTimer: 1
   _currentWaypoint: {fileID: 0}
+  _enemySlowAudio: {fileID: 0}
   _thiefTimer: 0
   _drainTimer: 1
   _continuousDrainer: 5
@@ -48,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793509, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: m_Name
-      value: Thief
+      value: Thief 1
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793511, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: m_Materials.Array.data[0]

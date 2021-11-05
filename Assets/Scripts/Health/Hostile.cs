@@ -28,10 +28,13 @@ public class Hostile : Health
     private Path _getPath;
     public Waypoint _currentWaypoint;
 
+    [SerializeField] private AudioSource _enemySlowAudio;
+
     public override void Start()
     {
         base.Start();
         SetupEnemy();
+        _enemySlowAudio = GetComponent<AudioSource>();
     }
 
     public void Awake()
@@ -75,6 +78,7 @@ public class Hostile : Health
 
     public void SlowEnemy()
     {
+        //_enemySlowAudio.Play();
         StartCoroutine(SlowTimer());
     }
 

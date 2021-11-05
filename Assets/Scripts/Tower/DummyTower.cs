@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DummyTower : LaserTurret
 {
-    void Start()
+    public override void Start()
     {
         shootTimer = _shootTimer;
     }
 
-    private void Update()
+    public override void Update()
     {
         _detected = gameObject.GetComponentInParent<Detection>()._detection;
         _hostileInRange = gameObject.GetComponentInParent<Detection>().RangeChecker();
