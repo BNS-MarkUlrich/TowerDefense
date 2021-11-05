@@ -14,27 +14,22 @@ public class WaveSpawner : MonoBehaviour
     private float _nextSpawnTime;
     public float _enemySpawnTimer;
     public float _numberOfBosses;
-
-    private float _waveNumber;
-    private bool _startLevel;
     private bool activate;
 
-    [SerializeField] private float divideSpawnTime = 2f;
-
-
     private WaveNameUI _waveUI;
+
+    private WaveHandler _waveHandler;
 
     public States currentWave = States.StartGame;
 
     private void Start()
     {
+        _waveUI = FindObjectOfType<WaveNameUI>();
+        _waveHandler = FindObjectOfType<WaveHandler>();
         activate = true;
     }
     private void Update()
     {
-        _waveUI = FindObjectOfType<WaveNameUI>();
-        _waveNumber = FindObjectOfType<WaveHandler>()._waveNumber;
-        _startLevel = FindObjectOfType<WaveHandler>()._startLevel;
         _enemySpawnTimer += Time.deltaTime;
         GetSpawnTimer();
 
@@ -51,7 +46,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void FastSpawnTimer()
     {
-        _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x / 2, _minxMaxSpawnTime.y / 2);
+        _nextSpawnTime = Random.Range(_minxMaxSpawnTime.x / _waveHandler._divideSpawnRate, _minxMaxSpawnTime.y / _waveHandler._divideSpawnRate);
     }
 
     private float GetSpawnTimer()
@@ -67,14 +62,14 @@ public class WaveSpawner : MonoBehaviour
         switch (currentWave)
         {
             case States.StartGame:
-                if (_startLevel == true)
+                if (_waveHandler._startLevel == true)
                 {
                     _numberOfBosses = 0;
                     currentWave = States.Wave1;
                 }
                 break;
             case States.Wave1:
-                if (_waveNumber == 1)
+                if (_waveHandler._waveNumber == 1)
                 {
                     _waveUI.UpdateWaveName("Bosswave");
                     Invoke("NormalSpawnTimer", 0.1f);
@@ -87,7 +82,7 @@ public class WaveSpawner : MonoBehaviour
                 }
                 break;
             case States.Wave2:
-                if (_waveNumber == 2)
+                if (_waveHandler._waveNumber == 2)
                 {
                     _waveUI.UpdateWaveName("Special Enemies");
                     Invoke("FastSpawnTimer", 0.1f);
@@ -100,7 +95,7 @@ public class WaveSpawner : MonoBehaviour
                 }
                 break;
             case States.Wave3:
-                if (_waveNumber == 3)
+                if (_waveHandler._waveNumber == 3)
                 {
                     _waveUI.UpdateWaveName("Bosswave");
                     Invoke("NormalSpawnTimer", 0.1f);
@@ -113,7 +108,7 @@ public class WaveSpawner : MonoBehaviour
                 }
                 break;
             case States.Wave4:
-                if (_waveNumber == 4)
+                if (_waveHandler._waveNumber == 4)
                 {
                     _waveUI.UpdateWaveName("Medium Lane");
                     Invoke("FastSpawnTimer", 0.1f);
@@ -126,7 +121,7 @@ public class WaveSpawner : MonoBehaviour
                 }
                 break;
             case States.Wave5:
-                if (_waveNumber == 5)
+                if (_waveHandler._waveNumber == 5)
                 {
                     _waveUI.UpdateWaveName("Bosswave");
                     FindObjectOfType<LaneActivator>()._medium = activate;
@@ -140,7 +135,7 @@ public class WaveSpawner : MonoBehaviour
                 }
                 break;
             case States.Wave6:
-                if (_waveNumber == 6)
+                if (_waveHandler._waveNumber == 6)
                 {
                     _waveUI.UpdateWaveName("Hard Lane");
                     Invoke("FastSpawnTimer", 0.1f);
@@ -153,7 +148,7 @@ public class WaveSpawner : MonoBehaviour
                 }
                 break;
             case States.Wave7:
-                if (_waveNumber == 7)
+                if (_waveHandler._waveNumber == 7)
                 {
                     _waveUI.UpdateWaveName("Bosswave");
                     FindObjectOfType<LaneActivator>()._hard = activate;
@@ -167,7 +162,7 @@ public class WaveSpawner : MonoBehaviour
                 }
                 break;
             case States.Wave8:
-                if (_waveNumber == 8)
+                if (_waveHandler._waveNumber == 8)
                 {
                     _waveUI.UpdateWaveName("VeryHard Lane");
                     Invoke("FastSpawnTimer", 0.1f);
@@ -180,7 +175,7 @@ public class WaveSpawner : MonoBehaviour
                 }
                 break;
             case States.Wave9:
-                if (_waveNumber == 9)
+                if (_waveHandler._waveNumber == 9)
                 {
                     _waveUI.UpdateWaveName("Superwave");
                     FindObjectOfType<LaneActivator>()._veryHard = activate;
@@ -194,7 +189,7 @@ public class WaveSpawner : MonoBehaviour
                 }
                 break;
             case States.Wave10:
-                if (_waveNumber == 10)
+                if (_waveHandler._waveNumber == 10)
                 {
                     _waveUI.UpdateWaveName("Superwave");
                     Invoke("FastSpawnTimer", 0.1f);
@@ -207,7 +202,7 @@ public class WaveSpawner : MonoBehaviour
                 }
                 break;
             case States.SuperWave:
-                if (_waveNumber >= 10)
+                if (_waveHandler._waveNumber >= 10)
                 {
                     Invoke("FastSpawnTimer", 0.1f);
                     NormalWave();

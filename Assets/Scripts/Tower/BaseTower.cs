@@ -11,9 +11,15 @@ public class BaseTower : MonoBehaviour
     private float _saveTowerTimer;
     public float _towerPriceModifier;
 
-    private void Start()
+    public HealthDisplay healthbarValue;
+    private HealthDisplay updateHealthbar;
+
+    public virtual void Start()
     {
         _saveTowerTimer = _towerTimer;
+
+        updateHealthbar = healthbarValue.GetComponentInChildren<HealthDisplay>();
+        updateHealthbar.Initialise(_saveTowerTimer, _towerTimer);
     }
 
     public virtual void Update()
@@ -34,6 +40,7 @@ public class BaseTower : MonoBehaviour
     public void TowerTimer()
     {
         _towerTimer -= Time.deltaTime;
+        updateHealthbar.UpdateHP("Timer: ", _towerTimer);
         if (_towerTimer <= 0)
         {
             Destroy(gameObject.GetComponentInParent<Wrapper>().gameObject);

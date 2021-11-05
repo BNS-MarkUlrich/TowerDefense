@@ -10,8 +10,9 @@ public class LaserTurret : BaseTower
     public float _shootTimer = 1.0f;
     protected float shootTimer;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         shootTimer = _shootTimer;
     }
 

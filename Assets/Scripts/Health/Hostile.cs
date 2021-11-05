@@ -9,8 +9,8 @@ public class Hostile : Health
     public float _speed = 5.0f;
     private float _arrivalthreshold = 0.1f;
 
-    public EnemyHealthDisplay healthbarValue;
-    private EnemyHealthDisplay updateHealthbar;
+    public HealthDisplay healthbarValue;
+    private HealthDisplay updateHealthbar;
 
     //private float _hostileHeight;
     //private Hostile _hostile;
@@ -44,7 +44,7 @@ public class Hostile : Health
     {
         _playerHealth = GameObject.FindWithTag("PlayerBase").GetComponent<Health>();
         onPathComplete.AddListener(() => _playerHealth.TakeDamage(_damageAmount));
-        updateHealthbar = healthbarValue.GetComponentInChildren<EnemyHealthDisplay>();
+        updateHealthbar = healthbarValue.GetComponentInChildren<HealthDisplay>();
         updateHealthbar.Initialise(_startHealth, _currentHealth);
         _originalSpeed = _speed;
         _originalTimer = _slowTimer;
@@ -113,7 +113,7 @@ public class Hostile : Health
                 transform.Translate(Vector3.forward * _speed * Time.deltaTime);
             }
             _pointSystem = FindObjectOfType<PointSystem>();
-            updateHealthbar.UpdateHP(_currentHealth);
+            updateHealthbar.UpdateHP("", _currentHealth);
         }
     }
 }

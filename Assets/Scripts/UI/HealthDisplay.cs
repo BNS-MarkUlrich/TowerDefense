@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealthDisplay : MonoBehaviour
+public class HealthDisplay : MonoBehaviour
 {
     //private Enemy _enemyHealth;
     private float _targetHealth;
@@ -21,14 +21,15 @@ public class EnemyHealthDisplay : MonoBehaviour
     public void Initialise(float maxHP, float currentHP)
     {
         _targetStartHealth = maxHP;
-        UpdateHP(currentHP);
+        UpdateHP("", currentHP);
     }
 
-    public void UpdateHP(float currentHP)
+    public void UpdateHP(string name, float currentHP)
     {
         _targetHealth = currentHP;
 
-        _healthString.text = " " + _targetHealth;
+        _healthString.text = name + _targetHealth;
+        _healthString.text = string.Format("{0}{1:00}", name, currentHP);
 
         //bar calculations
         _barHealth = currentHP / _targetStartHealth * 100;

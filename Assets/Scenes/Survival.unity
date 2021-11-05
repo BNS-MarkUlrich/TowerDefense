@@ -232,6 +232,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 71.833, y: 124.186, z: 4.515}
+--- !u!114 &967392068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7957737968144404745, guid: a14b53247c950634eb76989e808b8c06, type: 3}
+  m_PrefabInstance: {fileID: 4404975310971271740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d63f65dcefaa524db8bbe247943bb1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1072975536 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6806143027901536745, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
@@ -519,6 +530,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 793172375340380300, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
+      propertyPath: _waveUI
+      value: 
+      objectReference: {fileID: 967392068}
+    - target: {fileID: 793172375340380300, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
       propertyPath: _difficultyLanes.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -538,6 +553,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1734574704424345477, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
+      propertyPath: _waveUI
+      value: 
+      objectReference: {fileID: 967392068}
     - target: {fileID: 2585036482472981918, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0

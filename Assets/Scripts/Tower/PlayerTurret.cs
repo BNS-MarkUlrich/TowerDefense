@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerTurret : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private GameObject laserPrefab;
+    //[SerializeField] private GameObject laserPrefab;
 
     public float _speed;
     public GameObject _hostile;

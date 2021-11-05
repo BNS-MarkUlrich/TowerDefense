@@ -9,6 +9,8 @@ public class WaveHandler : MonoBehaviour
     public float _waveNumber;
     public bool _startLevel;
 
+    public float _divideSpawnRate = 2f;
+
     private WaveUI _waveUI;
 
     private void Start()

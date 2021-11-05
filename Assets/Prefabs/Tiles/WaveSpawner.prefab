@@ -66,11 +66,9 @@ MonoBehaviour:
   _minxMaxSpawnTime: {x: 1, y: 3}
   stopSpawning: 0
   _enemySpawnTimer: 0
-  _levelTimer: {fileID: 0}
-  _waveTimer: 0
-  _waveNumber: 0
-  _difficultyLanes: []
-  _startLevel: 0
+  _numberOfBosses: 0
+  _waveUI: {fileID: 2139827670647084930, guid: 93ec8929976cf544d83847f80fbdc662, type: 3}
+  _waveHandler: {fileID: 1736200292525681782, guid: 078ab526523d35a4c9a78e6d0ae55cda, type: 3}
   currentWave: 0
 --- !u!1001 &5208369856102768235
 PrefabInstance:

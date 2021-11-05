@@ -7,8 +7,8 @@ public class DummyHostile : Health
     public float _speed = 5.0f;
     [SerializeField] private float _arrivalthreshold = 0.1f;
 
-    public EnemyHealthDisplay healthbarValue;
-    private EnemyHealthDisplay updateHealthbar;
+    public HealthDisplay healthbarValue;
+    private HealthDisplay updateHealthbar;
 
     public Path _getPath;
     private Waypoint _currentWaypoint;
@@ -27,7 +27,7 @@ public class DummyHostile : Health
 
     public void SetupEnemy()
     {
-        updateHealthbar = healthbarValue.GetComponentInChildren<EnemyHealthDisplay>();
+        updateHealthbar = healthbarValue.GetComponentInChildren<HealthDisplay>();
         updateHealthbar.Initialise(_startHealth, _currentHealth);
         _currentWaypoint = _getPath.GetPathStart();
     }
@@ -64,6 +64,6 @@ public class DummyHostile : Health
             transform.LookAt(heightOffsetPosition);
             transform.Translate(Vector3.forward * _speed * Time.deltaTime);
         }
-        updateHealthbar.UpdateHP(_currentHealth);
+        updateHealthbar.UpdateHP("", _currentHealth);
     }
 }
