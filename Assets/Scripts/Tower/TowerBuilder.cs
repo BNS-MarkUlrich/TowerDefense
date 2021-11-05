@@ -25,6 +25,8 @@ public class TowerBuilder : MonoBehaviour
     public bool _startTimer;
     public int _towerNumber;
 
+    private BaseTower _baseTower;
+
     private void Start()
     {
         renderer = GetComponent<MeshRenderer>();
@@ -72,58 +74,59 @@ public class TowerBuilder : MonoBehaviour
         else // Put most of the stuff below into separate scripts
         {
             _message.EnableMessageUI("Select new tower...");
+            _baseTower = _selectedTower.GetComponentInChildren<BaseTower>();
             if (Input.GetKeyDown(KeyCode.Alpha1) && tower != null) // Stun Tower
             {
                 if (_towerNumber == 0)
                 {
-                    _message.EnableMessageUI("This tower already exists on this tile!");
-                    SwitchBackToSelection();
+                    float _towerPrice = 500 - (500 * _baseTower._towerPriceModifier);
+                    UpgradeTower(_tower[0], _tower[0], _towerPrice, 0);
                 }
                 else if (_towerNumber == 1)
                 {
-                    UpgradeTower(_tower[1], _tower[0], 500, 1);
-                    _pointSystem.AddPoints(1000);
+                    float _towerPrice = 500 - (1000 * _baseTower._towerPriceModifier);
+                    UpgradeTower(_tower[1], _tower[0], _towerPrice, 0);
                 }
                 else if (_towerNumber == 2)
                 {
-                    UpgradeTower(_tower[2], _tower[0], 500, 1);
-                    _pointSystem.AddPoints(1500);
+                    float _towerPrice = 500 - (1500 * _baseTower._towerPriceModifier);
+                    UpgradeTower(_tower[2], _tower[0], _towerPrice, 0);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2) && tower != null) // Laser Turret
             {
                 if (_towerNumber == 0)
                 {
-                    UpgradeTower(_tower[0], _tower[1], 1000, 1);
-                    _pointSystem.AddPoints(500);
+                    float _towerPrice = 1000 - (500 * _baseTower._towerPriceModifier);
+                    UpgradeTower(_tower[0], _tower[1], _towerPrice, 1);
                 }
                 else if (_towerNumber == 1)
                 {
-                    _message.EnableMessageUI("This tower already exists on this tile!");
-                    SwitchBackToSelection();
+                    float _towerPrice = 1000 - (1000 * _baseTower._towerPriceModifier);
+                    UpgradeTower(_tower[1], _tower[1], _towerPrice, 1);
                 }
                 else if (_towerNumber == 2)
                 {
-                    UpgradeTower(_tower[2], _tower[1], 1000, 1);
-                    _pointSystem.AddPoints(1500);
+                    float _towerPrice = 1000 - (1500 * _baseTower._towerPriceModifier);
+                    UpgradeTower(_tower[2], _tower[1], _towerPrice, 1);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3) && tower != null) // Rocket Tower
             {
                 if (_towerNumber == 0)
                 {
-                    UpgradeTower(_tower[0], _tower[2], 1500, 1);
-                    _pointSystem.AddPoints(500);
+                    float _towerPrice = 1500 - (500 * _baseTower._towerPriceModifier);
+                    UpgradeTower(_tower[0], _tower[2], _towerPrice, 2);
                 }
                 else if (_towerNumber == 1)
                 {
-                    UpgradeTower(_tower[1], _tower[2], 1500, 1);
-                    _pointSystem.AddPoints(1000);
+                    float _towerPrice = 1500 - (1000 * _baseTower._towerPriceModifier);
+                    UpgradeTower(_tower[1], _tower[2], _towerPrice, 2);
                 }
                 else if (_towerNumber == 2)
                 {
-                    _message.EnableMessageUI("This tower already exists on this tile!");
-                    SwitchBackToSelection();
+                    float _towerPrice = 1500 - (1500 * _baseTower._towerPriceModifier);
+                    UpgradeTower(_tower[2], _tower[2], _towerPrice, 2);
                 }
             }
             else if (Input.GetMouseButtonDown(0))

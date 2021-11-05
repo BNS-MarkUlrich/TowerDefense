@@ -535,7 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _detected: 0
   _startTimer: 0
-  _towerTimer: 120
+  _towerTimer: 240
   _towerPriceModifier: 0
   healthbarValue: {fileID: 2160065740228927076}
   _hostileInRange: {fileID: 0}

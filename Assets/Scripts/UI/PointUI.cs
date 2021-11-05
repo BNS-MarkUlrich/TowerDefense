@@ -9,6 +9,6 @@ public class PointUI : MonoBehaviour
 
     public void UpdateUI(float currentPoints)
     {
-        _text.text = "Points: " + currentPoints;
+        _text.text = string.Format("{0}{1:0000}", "Points: ", currentPoints);
     }
 }

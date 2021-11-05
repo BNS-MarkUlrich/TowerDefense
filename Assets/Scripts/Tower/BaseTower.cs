@@ -8,7 +8,7 @@ public class BaseTower : MonoBehaviour
 
     public bool _startTimer;
     public float _towerTimer = 60f;
-    private float _saveTowerTimer;
+    public float _saveTowerTimer;
     public float _towerPriceModifier;
 
     public HealthDisplay healthbarValue;
@@ -25,7 +25,7 @@ public class BaseTower : MonoBehaviour
     public virtual void Update()
     {
         _detected = gameObject.GetComponentInParent<Detection>()._detection;
-
+        _towerPriceModifier = _towerTimer / _saveTowerTimer;
         _startTimer = FindObjectOfType<TowerBuilder>()._startTimer;
         bool startLevel = FindObjectOfType<WaveHandler>()._startLevel;
         if (startLevel == true)
