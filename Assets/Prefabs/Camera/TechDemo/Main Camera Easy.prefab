@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5423952531628380487, guid: 7aa9911e94026d94abbc8aea29e4e445, type: 3}
+      propertyPath: onPauseGame
+      value: 
+      objectReference: {fileID: 7328463630069993949, guid: d617304078a8c0d4b81b8725105fded9, type: 3}
     - target: {fileID: 6635069461047632220, guid: 7aa9911e94026d94abbc8aea29e4e445, type: 3}
       propertyPath: _hostile
       value: 
@@ -57,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8842595710559003349, guid: 7aa9911e94026d94abbc8aea29e4e445, type: 3}
       propertyPath: m_Name
-      value: Main Camera
+      value: Main Camera Easy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aa9911e94026d94abbc8aea29e4e445, type: 3}

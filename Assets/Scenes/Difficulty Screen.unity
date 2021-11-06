@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec997e6649fc9d45a11084d1a210832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: Survival VeryHard
+  _text: Survival Expert
 --- !u!1 &266349227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,7 +1550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec997e6649fc9d45a11084d1a210832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: Survival Medium
+  _text: Survival Easy
 --- !u!1 &1726154130
 GameObject:
   m_ObjectHideFlags: 0
