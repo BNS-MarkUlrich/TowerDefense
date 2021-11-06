@@ -14,6 +14,8 @@ public class Thief : Hostile
         if (_thiefTimer >= _drainTimer) // drain every x seconds
         {
             _pointSystem.RemovePoints(_continuousDrainer); // drain
+            _pointDrain += _continuousDrainer;
+            _pointsPerKill += _continuousDrainer;
             _thiefTimer = 0; // reset timer
         }
     }

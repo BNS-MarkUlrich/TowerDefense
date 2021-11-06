@@ -9,24 +9,33 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScreen.unity
     guid: 933e967025c2db649983061cf246414d
   - enabled: 1
+    path: Assets/Scenes/Difficulty Screen.unity
+    guid: ede548824f1e6a14fa96b8ee0378a903
+  - enabled: 1
     path: Assets/Scenes/Manual.unity
     guid: be585cac55b388644a3fbb7a82735a87
+  - enabled: 1
+    path: Assets/Scenes/Survival TechDemo.unity
+    guid: b02189dffeed1e648bf1a751cf42b294
+  - enabled: 1
+    path: Assets/Scenes/Survival Easy.unity
+    guid: ddcac0971ba76d44d94c9a458045c494
   - enabled: 1
     path: Assets/Scenes/Survival.unity
     guid: d06d7bf6c50f62b45bab6f46fa916734
   - enabled: 1
-    path: Assets/Scenes/TechDemo.unity
-    guid: 62577c1406211964db5303dcbcdea672
+    path: Assets/Scenes/Survival Expert.unity
+    guid: 359f14c1462b6fd418b526f0f87236ee
+  - enabled: 1
+    path: Assets/Scenes/Survival Nightmare.unity
+    guid: 18826dfd933be37439b790f8714d2d7b
   - enabled: 1
     path: Assets/Scenes/LoseScreen.unity
     guid: c8cca339179c86a41bc874a05bf9a9ce
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/TechDemo.unity
+    guid: 62577c1406211964db5303dcbcdea672
+  - enabled: 0
     path: Assets/Scenes/lvl1.unity
     guid: 2e8a671c44036444b9f7668d87b635ea
-  - enabled: 1
-    path: Assets/Scenes/Survival Easy.unity
-    guid: b02189dffeed1e648bf1a751cf42b294
-  - enabled: 1
-    path: Assets/Scenes/Difficulty Screen.unity
-    guid: ede548824f1e6a14fa96b8ee0378a903
   m_configObjects: {}

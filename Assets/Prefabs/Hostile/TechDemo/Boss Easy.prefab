@@ -27,7 +27,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793509, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: m_Name
-      value: Boss
+      value: Boss 1
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793510, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: m_Mesh
@@ -39,7 +39,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8c1850acfacd2c64d96fd07b01caf14a, type: 2}
     - target: {fileID: 54294533505793528, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: _pointDrain
-      value: 500
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793528, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: _startHealth

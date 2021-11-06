@@ -185,12 +185,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _detected: 0
   _startTimer: 0
-  _towerTimer: 240
+  _towerTimer: 300
   _saveTowerTimer: 0
   _towerPriceModifier: 0
   healthbarValue: {fileID: 2543317782878750261}
   _hostileInRange: {fileID: 0}
-  bulletPrefab: {fileID: 2678675354604933705, guid: 721abc9faaeb3d248b7f06c15f5e1e59, type: 3}
+  bulletPrefab: {fileID: 2678675354604933705, guid: d8f78870e0edc224fb1e6a00cab2b800, type: 3}
   _shootTimer: 1
   _turretFireAudio: {fileID: 6226309922967196954}
 --- !u!1 &2048456725024286584
@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 2866407783417390256}
   - component: {fileID: 4360143129939996916}
   m_Layer: 0
-  m_Name: heavy-cannon
+  m_Name: heavy-cannon Easy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

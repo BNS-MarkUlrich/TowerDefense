@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 54294533505793509, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: m_Name
-      value: Tank
+      value: Tank 1
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793528, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: _speed
@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793528, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: _pointDrain
-      value: 200
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793528, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: _startHealth

@@ -502,7 +502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7530676432815433755, guid: a14b53247c950634eb76989e808b8c06, type: 3}
       propertyPath: m_Text
-      value: --- Normal ---
+      value: --- Expert ---
       objectReference: {fileID: 0}
     - target: {fileID: 8615507130494814708, guid: a14b53247c950634eb76989e808b8c06, type: 3}
       propertyPath: m_Enabled
@@ -577,13 +577,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5115556070165355545, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
+      propertyPath: _medium
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5333202337262852597, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5373218015126615004, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5561362155170458689, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
       propertyPath: m_IsActive
@@ -745,6 +749,10 @@ PrefabInstance:
       propertyPath: _levelTimer
       value: 
       objectReference: {fileID: 374784693}
+    - target: {fileID: 7157853813426003317, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
+      propertyPath: _divideSpawnRate
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8085214605099757668, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0

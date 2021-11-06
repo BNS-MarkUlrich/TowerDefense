@@ -21,9 +21,10 @@ MonoBehaviour:
   healthbarValue: {fileID: 486944833407360412}
   _damageAmount: 0
   _pointsPerKill: 0
-  _pointDrain: 500
+  _pointDrain: 0
   _slowTimer: 1
   _currentWaypoint: {fileID: 0}
+  _enemySlowAudio: {fileID: 0}
   _thiefTimer: 0
   _drainTimer: 1
   _continuousDrainer: 5

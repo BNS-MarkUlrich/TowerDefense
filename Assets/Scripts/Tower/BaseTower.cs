@@ -43,6 +43,7 @@ public class BaseTower : MonoBehaviour
         updateHealthbar.UpdateHP("Timer: ", _towerTimer);
         if (_towerTimer <= 0)
         {
+            GetComponentInParent<BuildOverride>()._canBuild = true;
             Destroy(gameObject.GetComponentInParent<Wrapper>().gameObject);
             _startTimer = false;
         }

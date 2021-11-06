@@ -120,7 +120,7 @@ MonoBehaviour:
   healthbarValue: {fileID: 33447327169621846}
   _damageAmount: 2
   _pointsPerKill: 100
-  _pointDrain: 25
+  _pointDrain: 10
   _slowTimer: 1
   _currentWaypoint: {fileID: 0}
   _enemySlowAudio: {fileID: 7550115237555056169}

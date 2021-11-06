@@ -208,7 +208,8 @@ public class TowerBuilder : MonoBehaviour
         }
         else
         {
-            float pointsShort = points - _points;
+            float pointsShortF = points - _points;
+            int pointsShort = Mathf.RoundToInt(pointsShortF);
             _message.EnableMessageUI("You need " + pointsShort + " more points to buy " + tower.name);
         }
         SwitchBackToSelection();
@@ -230,7 +231,8 @@ public class TowerBuilder : MonoBehaviour
         }
         else
         {
-            float pointsShort = points - _points;
+            float pointsShortF = points - _points;
+            int pointsShort = Mathf.RoundToInt(pointsShortF);
             _message.EnableMessageUI("You need " + pointsShort + " more points to buy " + NewTower.name);
         }
         SwitchBackToSelection();

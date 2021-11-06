@@ -271,6 +271,10 @@ PrefabInstance:
       propertyPath: _messageManager
       value: 
       objectReference: {fileID: 1063079097279017449}
+    - target: {fileID: 4321291299894735575, guid: 3230fea021e77d14d9c5e2a7fb11daa7, type: 3}
+      propertyPath: m_Text
+      value: 'Next: WaveName'
+      objectReference: {fileID: 0}
     - target: {fileID: 5213562379230942314, guid: 3230fea021e77d14d9c5e2a7fb11daa7, type: 3}
       propertyPath: _message
       value: 
