@@ -440,7 +440,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -536,6 +536,7 @@ MonoBehaviour:
   _detected: 0
   _startTimer: 0
   _towerTimer: 240
+  _saveTowerTimer: 0
   _towerPriceModifier: 0
   healthbarValue: {fileID: 2160065740228927076}
   _hostileInRange: {fileID: 0}
