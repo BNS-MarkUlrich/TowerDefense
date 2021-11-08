@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793528, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: _startHealth
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793528, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: _damageAmount
@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793528, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: _pointsPerKill
-      value: 200
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793529, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: m_RootOrder

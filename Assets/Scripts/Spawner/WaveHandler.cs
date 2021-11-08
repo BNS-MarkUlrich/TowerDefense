@@ -6,6 +6,7 @@ public class WaveHandler : MonoBehaviour
 {
     public LevelTimer _levelTimer;
     public float _waveTimer;
+    public float _TimerPerWave = 60;
     public float _waveNumber;
     public bool _startLevel;
 
@@ -35,7 +36,7 @@ public class WaveHandler : MonoBehaviour
         {
             if (_waveTimer <= _levelTimer.levelTimer + 10)
             {
-                _waveTimer += 60;
+                _waveTimer += _TimerPerWave;
                 _waveNumber += 1;
                 _waveUI.UpdateUI(_waveNumber);
             }

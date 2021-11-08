@@ -689,6 +689,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 967392068}
     - target: {fileID: 793172375340380300, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
+      propertyPath: _minxMaxSpawnTime.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 793172375340380300, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
+      propertyPath: _minxMaxSpawnTime.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 793172375340380300, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
       propertyPath: _enemyTypes.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -737,6 +745,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 967392068}
     - target: {fileID: 1734574704424345477, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
+      propertyPath: _minxMaxSpawnTime.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734574704424345477, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
+      propertyPath: _minxMaxSpawnTime.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734574704424345477, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
       propertyPath: _enemyTypes.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -777,6 +793,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4241911267045650038, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
+      propertyPath: _minxMaxSpawnTime.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241911267045650038, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
+      propertyPath: _minxMaxSpawnTime.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241911267045650038, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
       propertyPath: _enemyTypes.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -811,6 +835,14 @@ PrefabInstance:
     - target: {fileID: 5561362155170458689, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5568465860619482944, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
+      propertyPath: _minxMaxSpawnTime.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5568465860619482944, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
+      propertyPath: _minxMaxSpawnTime.y
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5568465860619482944, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
       propertyPath: _enemyTypes.Array.size
@@ -992,6 +1024,14 @@ PrefabInstance:
       propertyPath: _levelTimer
       value: 
       objectReference: {fileID: 374784693}
+    - target: {fileID: 7157853813426003317, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
+      propertyPath: _TimerPerWave
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157853813426003317, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
+      propertyPath: _waveTimerAdd
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7157853813426003317, guid: f86f6cd0a9b12464aaae5b26636eeca7, type: 3}
       propertyPath: _divideSpawnRate
       value: 1.5

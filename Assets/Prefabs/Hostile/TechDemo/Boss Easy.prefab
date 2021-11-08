@@ -27,7 +27,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793509, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: m_Name
-      value: Boss 1
+      value: Boss Easy
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793510, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: m_Mesh
@@ -51,7 +51,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793528, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: _pointsPerKill
-      value: 500
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 54294533505793529, guid: 909e899320ba08b4192d61482a845d47, type: 3}
       propertyPath: m_RootOrder
